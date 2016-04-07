@@ -378,114 +378,150 @@
 
 							<!--style default button-->
 							<div style="padding: 0 0 20px;">
-								<a href="#" class="btn-default">Отправить заявку</a>
+								<a href="#" class="btn-default">
+									<span class="btn-default__inner">Текст ссылки</span>
+								</a>
 							</div>
 							<div style="padding: 0 0 20px;">
-								<input type="submit" value="Type submit">
-								<input type="button" value="Type button">
-								<input type="reset" value="Type reset">
-								<button>Button</button>
+								<a href="#" class="btn-default">
+									<span class="btn-default__inner">
+										<em>Перейти к якорю</em>
+										<i class="arrow-more"></i>
+									</span>
+								</a>
 							</div>
 							<div style="padding: 0 0 20px;">
-								<input class="btn-default-alt" type="submit" value="Type submit">
-								<input class="btn-default-alt" type="button" value="Type button">
-								<input class="btn-default-alt" type="reset" value="Type reset">
-								<button class="btn-default-alt">Button</button>
+								<div class="btn-default">
+									<span class="btn-default__inner">Type submit</span>
+									<input type="submit" value="">
+								</div>
+							</div>
+							<div style="padding: 0 0 20px;">
+								<div class="btn-default">
+									<span class="btn-default__inner">Type button</span>
+									<input type="button" value="Type button">
+									<!--must have non-empty attribute value-->
+								</div>
+							</div>
+							<div style="padding: 0 0 20px;">
+								<div class="btn-default">
+									<span class="btn-default__inner">Type reset</span>
+									<input type="reset" value="">
+								</div>
+							</div>
+							<div style="padding: 0 0 20px;">
+								<button class="btn-default">
+									<span class="btn-default__inner">Button</span>
+								</button>
 							</div>
 							<!--style default button end-->
 
+							<!--btn-small-->
+							<div style="padding: 0 0 20px;">
+								<a href="#" class="btn-small">Пройти тест</a>
+							</div>
+							<!--btn-small end-->
+
+							<!--btn-small-alt-->
+							<div style="padding: 0 0 20px;">
+								<a href="#" class="btn-small-alt">Пройти тест</a>
+							</div>
+							<!--btn-btn-small-alt end-->
+
 							<!--form style-->
-							<form action="#" method="get">
-								<div class="label-holder">
-									<label for="expl-label-01">Пример текстового поля с плейсхолдером: <span class="form-mark">*</span></label>
-								</div>
-								<input type="text" placeholder="Текстовое поле" id="expl-label-01" />
-								<div class="label-holder">
-									<label for="expl-label-02">Пример невалидного текстового поля: <span class="form-mark">*</span></label>
-								</div>
-								<input class="error" type="text" placeholder="Невалидное поле" id="expl-label-02" />
-								<div class="form-row">
-									<div class="input-wrap">
-										<div class="label-holder">
-											<label for="expl-label-03">Текстовое поле первое: <span class="form-mark">*</span></label>
-										</div>
-										<input type="text" placeholder="Текстовое поле первое" id="expl-label-03" />
+							<div style="background: #fff; padding: 20px;">
+								<form action="#" method="get">
+									<div class="label-holder">
+										<label for="expl-label-01">Пример текстового поля с плейсхолдером: <span class="form-mark">*</span></label>
 									</div>
-									<div class="input-wrap">
-										<div class="label-holder">
-											<label for="expl-label-04">Текстовое поле второе: <span class="form-mark">*</span></label>
-										</div>
-										<input type="text" placeholder="Текстовое поле второе" id="expl-label-04" />
+									<input type="text" placeholder="Текстовое поле" id="expl-label-01" />
+									<div class="label-holder">
+										<label for="expl-label-02">Пример невалидного текстового поля: <span class="form-mark">*</span></label>
 									</div>
-								</div>
-								<div class="form-row">
-									<div class="input-wrap">
-										<div class="label-holder">
-											<label for="expl-label-05">Текстовое поле третье: <span class="form-mark">*</span></label>
+									<input class="error" type="text" id="expl-label-02" />
+									<div class="form-row">
+										<div class="input-wrap">
+											<div class="label-holder">
+												<label for="expl-label-03">Текстовое поле первое: <span class="form-mark">*</span></label>
+											</div>
+											<input type="text" id="expl-label-03" />
 										</div>
-										<input type="text" placeholder="Текстовое поле третье" id="expl-label-05" />
-									</div>
-									<div class="input-wrap">
-										<div class="label-holder">
-											<label for="expl-label-06">Пример селекта: <span class="form-mark">*</span></label>
-										</div>
-										<div class="select">
-											<select name="filter-type" id="expl-label-06">
-												<option value="1">Выбрать опшин</option>
-												<option value="2">Опшин</option>
-												<option value="3">Опшин длиннее</option>
-												<option value="4">Опшин очень-очень-очень-очень длинный</option>
-											</select>
+										<div class="input-wrap">
+											<div class="label-holder">
+												<label for="expl-label-04">Текстовое поле второе: <span class="form-mark">*</span></label>
+											</div>
+											<input type="text" id="expl-label-04" />
 										</div>
 									</div>
-								</div>
-								<div class="label-holder">
-									<label for="expl-label-07">Сообщение:</label>
-								</div>
-								<textarea placeholder="Сообщение" id="expl-label-07"></textarea>
-								<div class="form-row">
-									<div class="input-wrap">
-										<ul class="checkbox-list">
-											<li>
-												<input type="checkbox" name="checkbox-normal" id="checkbox-normal" />
-												<label for="checkbox-normal"><span>Normal</span></label>
-											</li>
-											<li>
-												<input type="checkbox" name="checkbox-checked" id="checkbox-checked" checked />
-												<label for="checkbox-checked"><span>Checked</span></label>
-											</li>
-											<li>
-												<input type="checkbox" name="checkbox-disabled" id="checkbox-disabled" disabled />
-												<label for="checkbox-disabled"><span>Disabled</span></label>
-											</li>
-											<li>
-												<input type="checkbox" name="checkbox-checked-disabled" id="checkbox-checked-disabled" checked disabled />
-												<label for="checkbox-checked-disabled"><span>Checked & Disabled</span></label>
-											</li>
-										</ul>
+									<div class="form-row">
+										<div class="input-wrap">
+											<div class="label-holder">
+												<label for="expl-label-05">Текстовое поле третье: <span class="form-mark">*</span></label>
+											</div>
+											<input type="text" id="expl-label-05" />
+										</div>
+										<div class="input-wrap">
+											<div class="label-holder">
+												<label for="expl-label-06">Пример селекта: <span class="form-mark">*</span></label>
+											</div>
+											<div class="select">
+												<select name="filter-type" id="expl-label-06">
+													<option value="1">Выбрать опшин</option>
+													<option value="2">Опшин</option>
+													<option value="3">Опшин длиннее</option>
+													<option value="4">Опшин очень-очень-очень-очень длинный</option>
+												</select>
+											</div>
+										</div>
 									</div>
-									<div class="input-wrap">
-										<ul class="radio-list">
-											<li>
-												<input type="radio" name="radio-gender" id="radio-male" checked />
-												<label for="radio-male"><span>Male</span></label>
-											</li>
-											<li>
-												<input type="radio" name="radio-gender" id="radio-female" />
-												<label for="radio-female"><span>Female</span></label>
-											</li>
-											<li>
-												<input type="radio" name="radio-disabled" id="radio-disabled" disabled />
-												<label for="radio-disabled"><span>Disabled</span></label>
-											</li>
-											<li>
-												<input type="radio" name="radio-checked-disabled" id="radio-checked-disabled" checked disabled />
-												<label for="radio-checked-disabled"><span>Checked & Disabled</span></label>
-											</li>
-										</ul>
+									<div class="label-holder">
+										<label for="expl-label-07">Сообщение:</label>
 									</div>
-								</div>
-							</form>
+									<textarea id="expl-label-07"></textarea>
+									<div class="form-row">
+										<div class="input-wrap">
+											<ul class="checkbox-list">
+												<li>
+													<input type="checkbox" name="checkbox-normal" id="checkbox-normal" />
+													<label for="checkbox-normal"><span>Normal</span></label>
+												</li>
+												<li>
+													<input type="checkbox" name="checkbox-checked" id="checkbox-checked" checked />
+													<label for="checkbox-checked"><span>Checked</span></label>
+												</li>
+												<li>
+													<input type="checkbox" name="checkbox-disabled" id="checkbox-disabled" disabled />
+													<label for="checkbox-disabled"><span>Disabled</span></label>
+												</li>
+												<li>
+													<input type="checkbox" name="checkbox-checked-disabled" id="checkbox-checked-disabled" checked disabled />
+													<label for="checkbox-checked-disabled"><span>Checked & Disabled</span></label>
+												</li>
+											</ul>
+										</div>
+										<div class="input-wrap">
+											<ul class="radio-list">
+												<li>
+													<input type="radio" name="radio-gender" id="radio-male" checked />
+													<label for="radio-male"><span>Male</span></label>
+												</li>
+												<li>
+													<input type="radio" name="radio-gender" id="radio-female" />
+													<label for="radio-female"><span>Female</span></label>
+												</li>
+												<li>
+													<input type="radio" name="radio-disabled" id="radio-disabled" disabled />
+													<label for="radio-disabled"><span>Disabled</span></label>
+												</li>
+												<li>
+													<input type="radio" name="radio-checked-disabled" id="radio-checked-disabled" checked disabled />
+													<label for="radio-checked-disabled"><span>Checked & Disabled</span></label>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</form>
+							</div>
 							<!--form style end-->
 
 							<p>Дигидрокверцетин, благодаря своей уникальной молекулярной структуре, нейтрализует вредные токсичные для организма свободные радикалы, предохраняя от разрушения клеточные мембраны, снижает вредные последствия окислительного стресса.</p>
