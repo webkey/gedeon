@@ -5,6 +5,9 @@
 	display: inline-block;
 	vertical-align: top;
 }
+.depict-question{ background-position: 0 0; width: 23px; height: 31px; }
+.depict-editor{ background-position: 0 -51px; width: 30px; height: 30px; }
+.depict-colleague{ background-position: 0 -101px; width: 30px; height: 30px; }
 /*icons end*/
 
 /*social icons*/
