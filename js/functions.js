@@ -59,6 +59,22 @@ function slidersInit(){
 			}]
 		});
 	}
+	/*try-slider*/
+	var $testsSlider = $('.try-slider');
+	if($testsSlider.length){
+		$testsSlider.on('init', function (event, slick) {
+			if (slick.currentSlide == 0) {
+				$(this).css({'visibility':'visible'});
+			}
+		}).slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			infinite: false,
+			speed: 300,
+			dots: false,
+			arrows: true
+		});
+	}
 }
 /*sliders end*/
 
