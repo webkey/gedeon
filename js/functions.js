@@ -59,17 +59,23 @@ function slidersInit(){
 			}]
 		});
 	}
+
 	/*try-slider*/
 	var $testsSlider = $('.try-slider');
 	if($testsSlider.length){
-		$testsSlider.on('init', function (event, slick) {
+		$testsSlider.on('init reInit afterChange', function(event, slick, currentSlide, nextSlide){
+			//currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+			var $status = $(this).closest('.tests-slider').find('.try__counter');
+			var i = (currentSlide ? currentSlide : 0) + 1;
+			$status.text(i + ' из ' + slick.slideCount);
+		}).on('init', function (event, slick) {
 			if (slick.currentSlide == 0) {
 				$(this).css({'visibility':'visible'});
 			}
 		}).slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
-			infinite: false,
+			infinite: true,
 			speed: 300,
 			dots: false,
 			arrows: true
