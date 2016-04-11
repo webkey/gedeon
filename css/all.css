@@ -1205,6 +1205,7 @@ label{
 	height: 50px;
 	text-indent: -9999px;
 	overflow: hidden;
+	z-index: 1;
 	opacity: 0;
 	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
 	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
@@ -1768,13 +1769,27 @@ label{
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-.has-pdf .article__label{
+.has-pdf .article__label,
+.has-video .article__label{
 	display: block;
 }
 .has-pdf .article__label:before{
 	content: 'PDF';
 	display: block;
 }
+.has-video .article__label:before{
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 0;
+	width: 0;
+	border: solid transparent;
+	border-left-color: #fff;
+	border-width: 7px 10px;
+	margin: -7px 0 0 -3px;
+}
+
 .article__content{ padding: 39px 30px 84px; }
 .article__date{
 	display: block;
@@ -1866,6 +1881,7 @@ label{
 	text-align: left;
 	font: 12px/18px 'lato-black', Arial, Helvetica, sans-serif;
 	letter-spacing: 0.1em;
+	color: #29166f;
 	text-transform: uppercase;
 }
 .article__test-done,
@@ -1910,6 +1926,8 @@ label{
 	transition-property: transform;
 	-webkit-transition-duration: 0.3s;
 	transition-duration: 0.3s;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
 }
 .article:hover .article__img,
 .article:hover .article__content,
@@ -1924,7 +1942,9 @@ label{
 /*article end*/
 
 /*articles*/
-.articles{}
+.articles{
+	margin: 0 auto;
+}
 .articles__list{
 	margin: 0 16px;
 
@@ -1989,7 +2009,6 @@ label{
 	margin: 0 0 0 -320px;
 	width: 320px;
 	background: #006edc;
-	position: relative;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;

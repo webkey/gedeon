@@ -123,10 +123,12 @@ function equalHeightInit(){
 function stickyLayout(){
 	var $stickyJs = $(".aside");
 	if ($stickyJs.length) {
-		$stickyJs.stick_in_parent({
-			'parent': '.main-holder',
-			'bottoming': false
-		});
+		setTimeout(function () {
+			$('.aside').stick_in_parent({ // sticky element do not have relative
+				parent: '.main-holder', // parent must have relative
+				bottoming: '.pre-footer'
+			});
+		},100);
 		//$(window).on('load resize', function () {
 		//	if($(window).outerWidth() < 1350){
 		//		$('.aside').trigger("sticky_kit:detach").attr('style','');
@@ -159,15 +161,20 @@ function headerFixed(){
 
 /*articles layout*/
 function articlesLayout(){
-	var $articles = $('.articles');
+	var $articles = $('.articles__list');
 	if(!$articles.length){
 		return;
 	}
 
 	$(window).load(function () {
-		$articles.masonry({
-			itemSelector: '.article',
+		var $articlesPosition = $articles.masonry({
+			itemSelector: '.articles__item',
 			percentPosition: true
+		});
+
+		$articlesPosition.on( 'layoutComplete', function() {
+			//$(document.body).trigger("sticky_kit:recalc");
+			console.log('layout done');
 		});
 	})
 }
@@ -181,5 +188,5 @@ $(document).ready(function(){
 	equalHeightInit();
 	stickyLayout();
 	headerFixed();
-	//articlesLayout();
+	articlesLayout();
 });
