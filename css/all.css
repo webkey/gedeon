@@ -1671,9 +1671,7 @@ label.focus{
 /*video end*/
 
 /*enter*/
-.enter{
-	padding: 90px 32px 75px;
-}
+.enter{ padding: 60px 32px 75px; }
 .enter__holder{
 	position: relative;
 	overflow: hidden;
