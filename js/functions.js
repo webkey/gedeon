@@ -27,6 +27,32 @@ function placeholderInit(){
 }
 /* placeholder end */
 
+/*state form buttons*/
+function stateButtons(){
+	$(window).on('load', function () {
+		var btns = $('input:submit, input:button, input:reset');
+
+		$.each(btns, function () {
+			var $currentButton = $(this);
+
+			if($currentButton.prop('disabled')){
+				$currentButton.parent().addClass('disabled');
+			}
+		})
+	})
+}
+/*state form buttons end*/
+
+/*state form fields*/
+function stateFields(){
+	$( "input" ).focus(function() {
+		$( this ).prev().addClass('focus');
+	}).blur(function() {
+		$( this ).prev().removeClass('focus');
+	});
+}
+/*state form fields*/
+
 /*sliders*/
 function slidersInit(){
 	/*others-list*/
@@ -185,9 +211,11 @@ function articlesLayout(){
 
 $(document).ready(function(){
 	placeholderInit();
+	stateButtons();
 	slidersInit();
 	equalHeightInit();
 	stickyLayout();
 	headerFixed();
 	articlesLayout();
+	stateFields();
 });
