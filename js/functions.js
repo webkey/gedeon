@@ -46,9 +46,30 @@ function stateButtons(){
 /*state form fields*/
 function stateFields(){
 	$( "input" ).focus(function() {
-		$( this ).prev().addClass('focus');
+		var $thisField = $(this);
+
+		$thisField
+			.prev()
+			.addClass('focus');
+
+		$thisField
+			.closest('.input-wrap')
+			.addClass('focus')
+			.prev()
+			.addClass('focus');
+
 	}).blur(function() {
-		$( this ).prev().removeClass('focus');
+		var $thisField = $(this);
+
+		$thisField
+			.prev()
+			.removeClass('focus');
+
+		$thisField
+			.closest('.input-wrap')
+			.removeClass('focus')
+			.prev()
+			.removeClass('focus');
 	});
 }
 /*state form fields*/
@@ -212,10 +233,10 @@ function articlesLayout(){
 $(document).ready(function(){
 	placeholderInit();
 	stateButtons();
+	stateFields();
 	slidersInit();
 	equalHeightInit();
 	stickyLayout();
 	headerFixed();
 	articlesLayout();
-	stateFields();
 });
