@@ -147,12 +147,13 @@ function headerFixed(){
 		return;
 	}
 
+	$headerPanelWrap.css({
+		//height: $headerPanel.outerHeight(),
+		height: 105
+	});
+
 	$(window).on('load scroll resizeByWidth', function () {
 		var scrollTop = $(window).scrollTop();
-
-		$headerPanelWrap.css({
-			height: $headerPanel.outerHeight()
-		});
 
 		$page.toggleClass('header-fixed', scrollTop >= $headerPanelWrap.offset().top);
 	});
