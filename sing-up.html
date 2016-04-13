@@ -66,92 +66,206 @@
 									<div class="sing-up__body">
 										<div class="sing-up__form">
 											<form action="#" method="post">
-												<div class="sing-up__col">
-													<div class="form-line">
-														<div class="label-holder">
-															<label for="sing-up__form-login">Логин:</label>
+												<div class="sing-up__columns">
+													<div class="sing-up__col">
+														<div class="form-line">
+															<div class="label-holder">
+																<label for="sing-up__form-login">Логин: <span class="form-mark">*</span></label>
+															</div>
+															<div class="input-wrap">
+																<input type="text" id="sing-up__form-login" />
+															</div>
+															<span class="warning-text">Такой логин уже используется</span>
 														</div>
-														<div class="input-wrap">
-															<input type="text" placeholder="Ваш логин" id="sing-up__form-login" />
+
+														<div class="form-line">
+															<div class="label-holder">
+																<label for="sing-up__form-password">Пароль: <span class="form-mark">*</span></label>
+															</div>
+															<div class="input-wrap">
+																<input type="password" id="sing-up__form-password" />
+															</div>
+														</div>
+
+														<div class="form-line">
+															<div class="label-holder">
+																<label for="sing-up__form-password-repeat">Повторите пароль: <span class="form-mark">*</span></label>
+															</div>
+															<div class="input-wrap">
+																<input type="password" id="sing-up__form-password-repeat" />
+															</div>
+														</div>
+
+														<div class="form-line">
+															<div class="label-holder">
+																<label for="sing-up__form-tel">Контактный телефон: <span class="form-mark">*</span></label>
+															</div>
+															<div class="input-wrap">
+																<input type="text" id="sing-up__form-tel" />
+															</div>
+															<span class="for-example">Пример: +375_44_633-21-54</span>
+														</div>
+
+														<div class="form-line">
+															<div class="label-holder">
+																<label for="sing-up__form-email">E-mail: <span class="form-mark">*</span></label>
+															</div>
+															<div class="input-wrap">
+																<input type="email" id="sing-up__form-email" />
+															</div>
+														</div>
+
+														<div class="form-line">
+															<div class="label-holder">
+																<label for="sing-up__form-promo">Промо-код:</label>
+															</div>
+															<div class="input-wrap">
+																<input type="text" id="sing-up__form-promo" />
+															</div>
 														</div>
 													</div>
+													<div class="sing-up__col">
+														<div class="form-line">
+															<div class="label-holder">
+																<label for="sing-up__form-name">Фамилия: <span class="form-mark">*</span></label>
+															</div>
+															<div class="input-wrap">
+																<input type="text" id="sing-up__form-name" />
+															</div>
+														</div>
 
-													<div class="form-line">
-														<div class="label-holder">
-															<label for="sing-up__form-password">Пароль:</label>
+														<div class="form-line">
+															<div class="label-holder">
+																<label for="sing-up__form-first-name">Имя: <span class="form-mark">*</span></label>
+															</div>
+															<div class="input-wrap">
+																<input type="text" id="sing-up__form-first-name" />
+															</div>
 														</div>
-														<div class="input-wrap">
-															<input type="password" placeholder="Введите пароль" id="sing-up__form-password" />
-														</div>
-													</div>
 
-													<div class="form-line">
-														<div class="label-holder">
-															<label for="sing-up__form-password-repeat">Повторите пароль:</label>
+														<div class="form-line">
+															<div class="label-holder">
+																<label for="sing-up__form-middle-name">Отчество: <span class="form-mark">*</span></label>
+															</div>
+															<div class="input-wrap">
+																<input type="text" id="sing-up__form-middle-name" />
+															</div>
 														</div>
-														<div class="input-wrap">
-															<input type="password" placeholder="Введите пароль повторно" id="sing-up__form-password-repeat" />
-														</div>
-													</div>
 
-													<div class="form-line">
-														<div class="label-holder">
-															<label for="sing-up__form-tel">Контактный телефон:</label>
+														<div class="form-line">
+															<div class="label-holder">
+																<label for="sing-up__form-birth">Дата рождения: <span class="form-mark">*</span></label>
+															</div>
+															<div class="form-row birth-fields">
+																<div class="form-col" style="width: 26.7%">
+																	<input type="text" placeholder="День" id="sing-up__form-birth" />
+																</div>
+																<div class="form-col" style="width: 46.6%">
+																	<input type="text" placeholder="Месяц" />
+																</div>
+																<div class="form-col" style="width: 26.7%">
+																	<input type="text" placeholder="Год" />
+																</div>
+															</div>
 														</div>
-														<div class="input-wrap">
-															<input type="text" placeholder="Ваш номер телефона" id="sing-up__form-tel" />
-														</div>
-														<span class="for-example">Пример: +375_44_633-21-54</span>
-													</div>
 
-													<div class="form-line">
-														<div class="label-holder">
-															<label for="sing-up__form-email">E-mail:</label>
+														<div class="form-line">
+															<div class="label-holder">
+																<label for="sing-up__form-region">Область: <span class="form-mark">*</span></label>
+															</div>
+															<div class="select">
+																<select name="filter-type" id="sing-up__form-region">
+																	<option value="1">Минская</option>
+																	<option value="2">Брестская </option>
+																	<option value="1">Гомельская</option>
+																	<option value="3">Гродненская </option>
+																	<option value="4">Могилёвская</option>
+																</select>
+															</div>
 														</div>
-														<div class="input-wrap">
-															<input type="email" placeholder="Ваш email" id="sing-up__form-email" />
-														</div>
-													</div>
 
-													<div class="form-line">
-														<div class="label-holder">
-															<label for="sing-up__form-promo">Промо-код:</label>
+														<div class="form-line">
+															<div class="label-holder">
+																<label for="sing-up__form-city">Город: <span class="form-mark">*</span></label>
+															</div>
+															<div class="input-wrap">
+																<input type="text" id="sing-up__form-city" />
+															</div>
 														</div>
-														<div class="input-wrap">
-															<input type="text" placeholder="Введите промокод" id="sing-up__form-promo" />
+
+														<div class="form-line">
+															<div class="label-holder">
+																<label for="sing-up__form-work">Место работы: <span class="form-mark">*</span></label>
+															</div>
+															<div class="select">
+																<select name="filter-type" id="sing-up__form-work">
+																	<option value="1">- Место работы -</option>
+																	<option value="2">Тут</option>
+																	<option value="1">Там</option>
+																	<option value="3">То тут то там</option>
+																	<option value="4">В активном поиске хорошего места работы с приличным окладом</option>
+																	<option value="5">Не работаю</option>
+																</select>
+															</div>
+														</div>
+
+														<div class="form-line">
+															<div class="label-holder">
+																<label for="sing-up__form-specialty">Специальность: <span class="form-mark">*</span></label>
+															</div>
+															<div class="select">
+																<select name="filter-type" id="sing-up__form-specialty">
+																	<option value="1">- Специальность -</option>
+																	<option value="1">Есть</option>
+																	<option value="2">Есть и не одна</option>
+																	<option value="5">Нет</option>
+																	<option value="3">Что это?</option>
+																	<option value="4">Если бы каждому такую замечательную специальность, как у меня</option>
+																</select>
+															</div>
 														</div>
 													</div>
 												</div>
-												<div class="sing-up__col">
-													<div class="form-line">
-														<div class="label-holder">
-															<label for="sing-up__form-name">Фамилия:</label>
+												<div class="sing-up__options">
+													<div class="sing-up__options-align">
+														<div class="sing-up__accept">
+															<label class="check-label">
+																<input type="checkbox">
+																<span>Я принимаю условия <a href="#">пользовательского соглашения</a>.</span>
+															</label>
 														</div>
-														<div class="input-wrap">
-															<input type="text" placeholder="Ваша фамилия" id="sing-up__form-name" />
+														<label class="check-label delivery">
+															<input type="checkbox" checked>
+															<span>Получать рассылку свежих материалов портала.</span>
+														</label>
+													</div>
+												</div>
+												<div class="sing-up__buttons">
+													<div class="btn-default">
+														<span class="btn-default__inner">Зарегистрироваться</span>
+														<input type="submit" value="">
+													</div>
+												</div>
+												<div class="confirm-box" style="display: none;">
+													<div class="confirm-code">
+														<div class="label-holder">
+															<label for="sing-up__form-confirm">введите код подтверждения:</label>
+														</div>
+														<input type="text" id="sing-up__form-confirm" />
+														<div class="get-confirm">
+															<a href="#">Получить код подтверждения повторно</a>
 														</div>
 													</div>
-
-													<div class="form-line">
-														<div class="label-holder">
-															<label for="sing-up__form-first-name">Имя:</label>
-														</div>
-														<div class="input-wrap">
-															<input type="text" placeholder="Ваше имя" id="sing-up__form-first-name" />
-														</div>
-													</div>
-
-													<div class="form-line">
-														<div class="label-holder">
-															<label for="sing-up__form-middle-name">Отчество:</label>
-														</div>
-														<div class="input-wrap">
-															<input type="text" placeholder="Ваше отчество" id="sing-up__form-middle-name" />
+													<div class="sing-up__buttons hide">
+														<div class="btn-default">
+															<span class="btn-default__inner">Отправить</span>
+															<input type="submit" value="" disabled>
 														</div>
 													</div>
 												</div>
 											</form>
 										</div>
+										<div class="form-note">Есть аккаунт? <a href="#">Авторизируйтесь</a></div>
 									</div>
 								</div>
 							</div>

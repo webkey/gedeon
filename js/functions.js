@@ -45,7 +45,7 @@ function stateButtons(){
 
 /*state form fields*/
 function stateFields(){
-	$( "input" ).focus(function() {
+	$( "input, textarea, select" ).focus(function() {
 		var $thisField = $(this);
 
 		$thisField
@@ -53,7 +53,7 @@ function stateFields(){
 			.addClass('focus');
 
 		$thisField
-			.closest('.input-wrap')
+			.parent()
 			.addClass('focus')
 			.prev()
 			.addClass('focus');
@@ -66,7 +66,7 @@ function stateFields(){
 			.removeClass('focus');
 
 		$thisField
-			.closest('.input-wrap')
+			.parent()
 			.removeClass('focus')
 			.prev()
 			.removeClass('focus');

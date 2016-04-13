@@ -493,32 +493,70 @@
 											<label for="expl-label-01">Пример текстового поля с плейсхолдером: <span class="form-mark">*</span></label>
 										</div>
 										<input type="text" placeholder="Текстовое поле" id="expl-label-01" />
-										<div class="label-holder">
+										<div class="label-holder error">
 											<label for="expl-label-02">Пример невалидного текстового поля: <span class="form-mark">*</span></label>
 										</div>
 										<input class="error" type="text" id="expl-label-02" />
+
+										<hr style="margin-left: 0;">
+
 										<div class="form-row">
-											<div class="input-wrap">
-												<div class="label-holder">
-													<label for="expl-label-03">Текстовое поле первое: <span class="form-mark">*</span></label>
+											<div class="form-col">
+
+												<div class="form-line">
+													<div class="label-holder">
+														<label for="expl-label-03-1">придумайте логин: <span class="form-mark">*</span></label>
+													</div>
+													<div class="input-wrap">
+														<input type="text" placeholder="Ваш логин" id="expl-label-03-1" />
+													</div>
+													<span class="warning-text">Такой логин уже используется</span>
 												</div>
-												<input type="text" id="expl-label-03" />
+
+												<div class="form-line">
+													<div class="label-holder error">
+														<label for="expl-label-03-2">придумайте логин (уже используется): <span class="form-mark">*</span></label>
+													</div>
+													<div class="input-wrap">
+														<input type="text" placeholder="Ваш логин" id="expl-label-03-2" class="error" />
+													</div>
+													<span class="warning-text error">Такой логин уже используется</span>
+												</div>
+
+												<div class="form-line">
+													<div class="label-holder">
+														<label for="expl-label-03-3">придумайте логин (прошел проверку): <span class="form-mark">*</span></label>
+													</div>
+													<div class="input-wrap complete">
+														<input type="text" placeholder="Ваш логин" id="expl-label-03-3" />
+													</div>
+													<span class="warning-text">Такой логин уже используется</span>
+												</div>
+
 											</div>
-											<div class="input-wrap">
+											<div class="form-col">
+
 												<div class="label-holder">
 													<label for="expl-label-04">Текстовое поле второе: <span class="form-mark">*</span></label>
 												</div>
 												<input type="text" id="expl-label-04" />
+
 											</div>
 										</div>
+
+										<hr style="margin-left: 0;">
+
 										<div class="form-row">
-											<div class="input-wrap">
+											<div class="form-col">
+
 												<div class="label-holder">
 													<label for="expl-label-05">Текстовое поле третье: <span class="form-mark">*</span></label>
 												</div>
 												<input type="text" id="expl-label-05" />
+
 											</div>
-											<div class="input-wrap">
+											<div class="form-col">
+
 												<div class="label-holder">
 													<label for="expl-label-06">Пример селекта: <span class="form-mark">*</span></label>
 												</div>
@@ -530,6 +568,7 @@
 														<option value="4">Опшин очень-очень-очень-очень длинный</option>
 													</select>
 												</div>
+
 											</div>
 										</div>
 										<div class="label-holder">
@@ -537,7 +576,7 @@
 										</div>
 										<textarea id="expl-label-07"></textarea>
 										<div class="form-row">
-											<div class="input-wrap">
+											<div class="form-col">
 												<ul class="check-list">
 													<li><h4><mark>For to ID</mark></h4></li>
 													<li>
@@ -583,7 +622,7 @@
 													</li>
 												</ul>
 											</div>
-											<div class="input-wrap">
+											<div class="form-col">
 												<ul class="check-list">
 													<li><h4><mark>For to ID</mark></h4></li>
 													<li>
@@ -772,7 +811,7 @@
 						<!--form search-->
 						<div class="search-form">
 							<form action="#" method="get">
-								<div class="input-wrap">
+								<div class="form-col">
 									<input type="text" value="" placeholder="Поиск по сайту" />
 									<div class="btn-search">
 										<i class="depict-search"></i>
