@@ -168,20 +168,32 @@ function equalHeightInit(){
 
 /*sticky layout*/
 function stickyLayout(){
-	var $stickyJs = $(".aside");
-	if ($stickyJs.length) {
+	/*aside*/
+	var $aside = $(".aside");
+	if ($aside.length) {
 		setTimeout(function () {
-			$('.aside').stick_in_parent({ // sticky element do not have relative
+			$aside.stick_in_parent({ // sticky element do not have relative
 				parent: '.main-holder', // parent must have relative
 				bottoming: '.pre-footer'
 			});
-		},100);
+		}, 100);
 		//$(window).on('load resize', function () {
 		//	if($(window).outerWidth() < 1350){
 		//		$('.aside').trigger("sticky_kit:detach").attr('style','');
 		//	}
 		//})
 	}
+
+	/*menu*/
+	//var $menu = $(".menu");
+	//if ($menu.length) {
+	//	setTimeout(function () {
+	//		$menu.stick_in_parent({
+	//			parent: '.main-holder',
+	//			bottoming: '.pre-footer'
+	//		});
+	//	}, 100);
+	//}
 }
 /*sticky layout end*/
 
@@ -227,6 +239,82 @@ function articlesLayout(){
 }
 /*articles layout end*/
 
+/*scroll TO*/
+$.extend($.easing, {
+	def: 'easeOutQuad', easeInOutExpo: function (x, t, b, c, d) {
+		if (t == 0) return b;
+		if (t == d) return b + c;
+		if ((t /= d / 2) < 1) return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
+		return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
+	}
+});
+
+(function( $ ) {
+
+	var settings;
+	var disableScrollFn = false;
+	var navItems;
+	var navs = {}, sections = {};
+
+	$.fn.navScroller = function(options) {
+		settings = $.extend({
+			scrollToOffset: 30,
+			scrollSpeed: 800,
+			activateParentNode: true
+		}, options );
+		navItems = this;
+
+		//attatch click listeners
+		navItems.on('click', function(event){
+			event.preventDefault();
+			var navID = $(this).attr("href").substring(1);
+			disableScrollFn = true;
+			activateNav(navID);
+			populateDestinations(); //recalculate these!
+			$('html,body').animate({scrollTop: sections[navID] - settings.scrollToOffset},
+					settings.scrollSpeed, "easeInOutExpo", function(){
+						disableScrollFn = false;
+					}
+			);
+		});
+
+		//populate lookup of clicable elements and destination sections
+		populateDestinations(); //should also be run on browser resize, btw
+
+		// setup scroll listener
+		$(document).scroll(function(){
+			if (disableScrollFn) { return; }
+			var page_height = $(window).height();
+			var pos = $(this).scrollTop();
+			for (i in sections) {
+				if ((pos + settings.scrollToOffset >= sections[i]) && sections[i] < pos + page_height){
+					activateNav(i);
+				}
+			}
+		});
+	};
+
+	function populateDestinations() {
+		navItems.each(function(){
+			var scrollID = $(this).attr('href').substring(1);
+			navs[scrollID] = (settings.activateParentNode)? this.parentNode : this;
+			sections[scrollID] = $(document.getElementById(scrollID)).offset().top;
+		});
+	}
+
+	function activateNav(navID) {
+		for (nav in navs) { $(navs[nav]).removeClass('active'); }
+		$(navs[navID]).addClass('active');
+	}
+})( jQuery );
+
+function scrollMenu(){
+	var $contactsAnchor = $('.menu');
+	if(!$contactsAnchor.length){return}
+	$contactsAnchor.find('a').navScroller();
+}
+/*scroll TO end*/
+
 /*content min height*/
 function contentMinHeight(){
 	$(window).on('load resizeByWidth', function () {
@@ -246,6 +334,7 @@ $(document).ready(function(){
 	stickyLayout();
 	headerFixed();
 	articlesLayout();
+	scrollMenu();
 
 	contentMinHeight();
 });

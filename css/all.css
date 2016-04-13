@@ -487,7 +487,7 @@ table th{
 .user-content blockquote:after{
 	content: '';
 	position: absolute;
-	font: 700 60px/64px 'Roboto Slab', Arial, Helvetica, sans-serif;
+	font: 700 60px/64px 'Roboto Slab', serif;
 	letter-spacing: 0.1em;
 	color: #006edc;
 	height: 64px;
@@ -1390,6 +1390,13 @@ label.error{
 	-webkit-transition-delay: 0.3s;
 	transition-delay: 0.3s;
 }
+.header-fixed .logo-short:hover{
+	-webkit-transform: scale(0.92, 0.92);
+	-ms-transform: scale(0.92, 0.92);
+	transform: scale(0.92, 0.92);
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
 /*logo-sm end*/
 .nav{
 	position: relative;
@@ -1682,7 +1689,7 @@ label.error{
 .test-box__label{
 	display: block;
 	float: left;
-	font: 700 24px/36px 'Roboto Slab', Arial, Helvetica, sans-serif;
+	font: 700 24px/36px 'Roboto Slab', serif;
 	letter-spacing: 0.1em;
 	color: #333;
 	margin-right: 8px;
@@ -1819,7 +1826,7 @@ label.error{
 	box-sizing: border-box;
 }
 .enter__caption h1{
-	font: bold 30px/48px 'Roboto Slab', Arial, Helvetica, sans-serif;
+	font: bold 30px/48px 'Roboto Slab', serif;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	color: #fff;
@@ -1865,7 +1872,7 @@ label.error{
 	box-sizing: border-box;
 }
 .enter__login h2{
-	font: bold 30px/48px 'Roboto Slab', Arial, Helvetica, sans-serif;
+	font: bold 30px/48px 'Roboto Slab', serif;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	color: #333;
@@ -1918,7 +1925,7 @@ label.error{
 }
 .sing-up__caption h1{
 	position: relative;
-	font: bold 30px/48px 'Roboto Slab', Arial, Helvetica, sans-serif;
+	font: bold 30px/48px 'Roboto Slab', serif;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	color: #fff;
@@ -2063,7 +2070,7 @@ label.error{
 	letter-spacing: normal;
 }
 .caption__inner h2{
-	font: 700 24px/1.2 'Roboto Slab', Arial, Helvetica, sans-serif;
+	font: 700 24px/1.2 'Roboto Slab', serif;
 	letter-spacing: 0.1em;
 	color: #333;
 	text-transform: uppercase;
@@ -2277,7 +2284,7 @@ label.error{
 	margin: 0 0 22px;
 }
 .article__title{
-	font: bold 16px/22px 'Roboto Slab', Arial, Helvetica, sans-serif;
+	font: bold 16px/22px 'Roboto Slab', serif;
 	letter-spacing: normal;
 	color: #2b2a29;
 	padding: 0;
@@ -2635,7 +2642,7 @@ label.error{
 	display: block;
 	margin: 0 0 30px;
 	padding: 0;
-	font: 700 18px/24px 'Roboto Slab', Arial, Helvetica, sans-serif;
+	font: 700 18px/24px 'Roboto Slab', serif;
 	letter-spacing: 0.05em;
 	color: #fff;
 	-webkit-transition-property: color;
@@ -2839,12 +2846,77 @@ label.error{
 /*others end*/
 /*MAIN end*/
 
+/*MENU*/
+.menu{
+	position: absolute;
+	top: 275px;
+	left: 0;
+}
+.menu-list,
+.user-content .menu-list{
+	list-style: none;
+	padding: 10px 10px 10px 0;
+	margin: 0;
+	background: #fff;
+	width: 60px;
+}
+.menu-list li,
+.user-content .menu-list li,
+.user-content .menu-list li:first-child{
+	padding: 0 0 1px;
+}
+.user-content .menu-list li:before,
+.user-content .menu-list li:first-child:before{
+	content: none;
+}
+.menu-list > li > a{
+	display: block;
+	height: 60px;
+	width: 60px;
+	font: bold 18px/60px 'Roboto Slab', serif;
+	color: #fff;
+	background: #1a1a1a;
+	text-decoration: none;
+	white-space: nowrap;
+	overflow: hidden;
+
+	-webkit-transition: 0.2s;
+	transition: 0.2s;
+	backface-visibility: hidden;
+}
+.menu-list > li > a:hover,
+.menu-list > li.active > a{
+	background: #006edc;
+}
+.menu-list > li > a:hover{
+	width: 242px;
+}
+.menu-list > li > a [class*="icon-"]{
+	vertical-align: middle;
+}
+.menu-list > li > a .text-inner{
+	display: inline-block;
+	white-space: normal;
+	vertical-align: middle;
+	max-width: 140px;
+	-webkit-transition: 0.3s linear;
+	transition: 0.3s linear;
+	opacity: 0;
+	-webkit-animation-duration: 0.15s;
+	animation-duration: 0.15s;
+}
+.menu-list > li > a:hover .text-inner{
+	opacity: 1;
+}
+/*MENU end*/
+
 /*ASIDE*/
 .aside{
 	float: right;
 	margin: 0 0 0 -320px;
 	width: 320px;
 	background: #006edc;
+	z-index: 99;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -3227,7 +3299,7 @@ textarea:focus{
 .exam__title{
 	display: block;
 	margin: 0 0 49px;
-	font: 18px/24px 'Roboto Slab', Arial, Helvetica, sans-serif;
+	font: 18px/24px 'Roboto Slab', serif;
 	letter-spacing: 0.05em;
 	color: #fff;
 }
