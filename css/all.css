@@ -2854,6 +2854,7 @@ label.error{
 }
 .menu-list,
 .user-content .menu-list{
+	font: bold 18px/60px 'Roboto Slab', serif;
 	list-style: none;
 	padding: 10px 10px 10px 0;
 	margin: 0;
@@ -2869,43 +2870,64 @@ label.error{
 .user-content .menu-list li:first-child:before{
 	content: none;
 }
-.menu-list > li > a{
+.menu-list li a{
 	display: block;
+	position: relative;
+	color: #fff;
 	height: 60px;
 	width: 60px;
-	font: bold 18px/60px 'Roboto Slab', serif;
-	color: #fff;
-	background: #1a1a1a;
 	text-decoration: none;
-	white-space: nowrap;
-	overflow: hidden;
-
-	-webkit-transition: 0.2s;
-	transition: 0.2s;
-	backface-visibility: hidden;
 }
-.menu-list > li > a:hover,
-.menu-list > li.active > a{
+.menu-list a [class*="depict-menu-"]{
+	background: #1a1a1a;
+	z-index: 1;
+	-webkit-transition-property: opacity, background;
+	transition-property: opacity, background;
+	-webkit-transition-duration: 0.3s, 0.1s;
+	transition-duration: 0.3s, 0.1s;
+}
+.menu-list li a:hover [class*="depict-menu-"],
+.menu-list li.active a [class*="depict-menu-"]{
 	background: #006edc;
 }
-.menu-list > li > a:hover{
-	width: 242px;
+.menu-list li a:hover [class*="depict-menu-"]:after,
+.menu-list li.active a [class*="depict-menu-"]:after{
+	opacity: 1;
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
 }
-.menu-list > li > a [class*="icon-"]{
-	vertical-align: middle;
-}
-.menu-list > li > a .text-inner{
-	display: inline-block;
-	white-space: normal;
-	vertical-align: middle;
-	max-width: 140px;
-	-webkit-transition: 0.3s linear;
-	transition: 0.3s linear;
+.menu-list li a:hover [class*="depict-menu-"]:before,
+.menu-list li.active a [class*="depict-menu-"]:before{
 	opacity: 0;
-	-webkit-animation-duration: 0.15s;
-	animation-duration: 0.15s;
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 }
-.menu-list > li > a:hover .text-inner{
+.menu-list a .text-inner{
+	/*white-space: nowrap;*/
+	position: absolute;
+	left: 100%;
+	top: 0;
+	height: 100%;
+	width: 400px;
+	padding: 0 20px;
+	background: #006edc;
+	/*overflow: hidden;*/
+	opacity: 0;
+	-webkit-transform: translate(-100%, 0);
+	-ms-transform: translate(-100%, 0);
+	transform: translate(-100%, 0);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition-property: -webkit-transform, opacity;
+	transition-property: transform, opacity;
+	-webkit-animation-duration: 3s;
+	animation-duration: 3s;
+}
+.menu-list a:hover .text-inner{
+	-webkit-transform: translate(0, 0);
+	-ms-transform: translate(0, 0);
+	transform: translate(0, 0);
 	opacity: 1;
 }
 /*MENU end*/

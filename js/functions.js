@@ -310,8 +310,12 @@ $.extend($.easing, {
 
 function scrollMenu(){
 	var $contactsAnchor = $('.menu');
-	if(!$contactsAnchor.length){return}
-	$contactsAnchor.find('a').navScroller();
+
+	if($contactsAnchor.length){
+		$contactsAnchor.find('a').navScroller({
+			scrollToOffset: 30
+		});
+	}
 }
 /*scroll TO end*/
 
