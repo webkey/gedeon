@@ -1613,10 +1613,9 @@ label.error{
 /*test box*/
 .test-box{
 	position: relative;
-	padding: 0 0 30px;
+	padding: 0 0 65px;
 	margin: 0 -80px 0 0;
 }
-.test-box-heading{ padding: 0 0 65px; }
 
 .test-box__caption{
 	display: block;
@@ -1713,7 +1712,42 @@ label.error{
 	font-family: 'lato-black', Arial, Helvetica, sans-serif;
 	color: #ff0101;
 }
-.test-box__btn{ padding: 9px 0; }
+.test-box__test{ padding: 9px 0; }
+.test-box__test-status{
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+	font: 12px/18px 'lato-black', Arial, Helvetica, sans-serif;
+	letter-spacing: 0.1em;
+	color: #29166f;
+	text-transform: uppercase;
+}
+.test-box__test-done,
+.test-box__test-done a{ color: #91c405; }
+.test-box__test-again,
+.test-box__test-again a{ color: #83cff0; }
+.test-box__test-done a,
+.test-box__test-again a{ text-decoration: underline; }
+.test-box__test-done a:hover,
+.test-box__test-again a:hover{ text-decoration: none; }
+
+.test-box__test-btn,
+.test-box__test-status,
+.test-box__test-done,
+.test-box__test-again{
+	display: none;
+}
+.test-box.has-test .test-box__test-btn{
+	display: inline-block;
+}
+.test-box.test-done .test-box__test-status,
+.test-box.test-done .test-box__test-done{
+	display: block;
+}
+.test-box.test-again .test-box__test-status,
+.test-box.test-again .test-box__test-again{
+	display: block;
+}
 /*test box end*/
 
 /*video*/

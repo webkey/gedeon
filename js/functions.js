@@ -222,11 +222,18 @@ function articlesLayout(){
 
 		$articlesPosition.on( 'layoutComplete', function() {
 			//$(document.body).trigger("sticky_kit:recalc");
-			console.log('layout done');
 		});
 	})
 }
 /*articles layout end*/
+
+/*content min height*/
+function contentMinHeight(){
+	$(window).on('load resizeByWidth', function () {
+		$('.main-content').css('min-height', $('.aside').outerHeight());
+	})
+}
+/*content min height end*/
 
 /** ready/load/resize document **/
 
@@ -239,4 +246,6 @@ $(document).ready(function(){
 	stickyLayout();
 	headerFixed();
 	articlesLayout();
+
+	contentMinHeight();
 });
