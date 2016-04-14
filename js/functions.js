@@ -27,6 +27,21 @@ function placeholderInit(){
 }
 /* placeholder end */
 
+/* footer at bottom */
+function footerBottom(){
+	var footer = $('.footer');
+	$(window).on('load resizeByWidth', function () {
+		var footerOuterHeight = footer.outerHeight();
+		footer.css({
+			'margin-top': -footerOuterHeight
+		});
+		$('.spacer').css({
+			'height': footerOuterHeight
+		});
+	})
+}
+/* footer at bottom end */
+
 /*state form buttons*/
 function stateButtons(){
 	$(window).on('load', function () {
@@ -185,15 +200,16 @@ function stickyLayout(){
 	}
 
 	/*menu*/
-	//var $menu = $(".menu");
-	//if ($menu.length) {
-	//	setTimeout(function () {
-	//		$menu.stick_in_parent({
-	//			parent: '.main-holder',
-	//			bottoming: '.pre-footer'
-	//		});
-	//	}, 100);
-	//}
+	var $menu = $(".menu");
+	if ($menu.length) {
+		setTimeout(function () {
+			$menu.stick_in_parent({
+				parent: '.main',
+				bottoming: '.footer',
+				offset_top: 162
+			});
+		}, 100);
+	}
 }
 /*sticky layout end*/
 
@@ -327,10 +343,59 @@ function contentMinHeight(){
 }
 /*content min height end*/
 
+/*terminals switcher*/
+function terminalsSwitcherInit(){
+	var $terminalItem = $('.terminals-item');
+	if(!$terminalItem.length){
+		return;
+	}
+
+	var $terminalItemDrop = $terminalItem.find('.terminals-item__drop');
+	var _activeClass = 'active';
+	var _duration = 400;
+	var flag = true;
+
+	$terminalItem.on('click', 'h3', function () {
+		var $currentItem = $(this).closest('.terminals-item');
+		var $currentItemDrop = $currentItem.find($terminalItemDrop);
+
+		if($terminalItemDrop.is(':animated')){
+			return false;
+		}
+
+		if($currentItem.hasClass(_activeClass)){
+			flag = false;
+		}
+
+		closeTerminalsDrop();
+
+		$currentItemDrop.stop().slideToggle(_duration);
+		$currentItem.toggleClass(_activeClass, flag);
+
+		flag = true;
+		return false;
+	});
+
+	$(document).click(function () {
+		closeTerminalsDrop();
+	});
+
+	$terminalItemDrop.on('click', function(e){
+		e.stopPropagation();
+	});
+
+	function closeTerminalsDrop(){
+		$terminalItemDrop.stop().slideUp(_duration);
+		$terminalItem.removeClass(_activeClass);
+	}
+}
+/*terminals switcher end*/
+
 /** ready/load/resize document **/
 
 $(document).ready(function(){
 	placeholderInit();
+	footerBottom();
 	stateButtons();
 	stateFields();
 	slidersInit();
@@ -339,6 +404,7 @@ $(document).ready(function(){
 	headerFixed();
 	articlesLayout();
 	scrollMenu();
+	terminalsSwitcherInit();
 
 	contentMinHeight();
 });
