@@ -2866,6 +2866,12 @@ label.error{
 	font-size: 0;
 	letter-spacing: -4px;
 }
+.sect-date__conclusion{
+	width: 780px;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 0;
+}
 .sect-date__amount > div{
 	display: inline-block;
 	position: relative;
@@ -2907,9 +2913,113 @@ label.error{
 }
 
 .sect-date__presence{
-
+	margin: 0 -40px;
+	padding: 0 0 70px;
+	position: relative;
+	font-size: 0;
+	letter-spacing: -4px;
+}
+.sect-date__presence:after{
+	content: '';
+	position: absolute;
+	left: 50%;
+	bottom: 33px;
+	height: 0;
+	width: 60px;
+	margin-left: -30px;
+	border-top: 2px solid #006edc;
+}
+.sect-date__presence-box{
+	display: inline-block;
+	vertical-align: top;
+	width: 32.98%;
+	box-sizing: border-box;
+	padding: 0 40px;
+	font: 700 18px/30px 'Roboto Slab', Times, serif;
+	letter-spacing: normal;
+	text-align: center;
+	color: #fff;
+}
+.sect-date__presence-amount{
+	width: 135px;
+	height: 135px;
+	background: no-repeat 50% 50%;
+	-webkit-background-size: contain;
+	background-size: contain;
+	margin: 0 auto 20px;
+	font-size: 36px;
+	line-height: 134px;
 }
 /*section data end*/
+
+/*section profit*/
+.sect-profit{
+	background: #e5e5e5;
+	position: relative;
+	padding: 50px 0 30px;
+}
+.sect-profit h2{
+	text-align: center;
+	padding: 0 0 30px;
+}
+.section-profit__box{
+	font-size: 0;
+	letter-spacing: -4px;
+}
+.section-profit__col{
+	display: inline-block;
+	vertical-align: top;
+	box-sizing: border-box;
+	width: 33.28%;
+	text-align: center;
+	padding: 0 50px 30px;
+
+	font-size: 14px;
+	letter-spacing: 0.05em;
+}
+
+.section-profit__img{
+	position: relative;
+	margin: 0 0 20px;
+	font-size: 0;
+	letter-spacing: -4px;
+}
+.section-profit__img:before{
+	content: '';
+	display: inline-block;
+	height: 90px;
+	min-height: 100%;
+	vertical-align: middle;
+}
+.section-profit__img img{
+	display: inline-block;
+	vertical-align: middle;
+	max-width: 98%;
+}
+.section-profit__text h3{
+	font: 700 18px/30px 'Roboto Slab', Times, serif;
+	color: #006edc;
+	padding: 0 0 12px;
+}
+.section-profit__text p{
+	padding: 0;
+}
+/*section profit end*/
+
+/*section history*/
+.sect-history{
+	position: relative;
+	padding: 30px 0 50px;
+	background: #006edc url(../img/bg-sect-history.jpg) no-repeat 50% 0;
+	-webkit-background-size: 100%;
+	background-size: 100%;
+}
+.sect-history h2{
+	text-align: center;
+	color: #fff;
+	padding: 0 0 30px;
+}
+/*section history end*/
 
 /*terminals*/
 .terminals{
@@ -3120,6 +3230,7 @@ label.error{
 	padding-bottom: 40px;
 }
 .header-fixed .menu{
+	position: fixed;
 	top: 162px;
 }
 .menu-list,

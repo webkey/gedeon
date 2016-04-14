@@ -178,6 +178,22 @@ function equalHeightInit(){
 			});
 		});
 	}
+
+	/*profit*/
+	var profit = $('.section-profit__box');
+	if (profit.length) {
+		imagesLoaded(profit, function (instance) {
+			console.log(instance);
+			profit.each(function () {
+				$('.section-profit__img', this).equalHeight({
+					//amount: 3,
+					useParent: true,
+					parent: profit,
+					resize: true
+				});
+			});
+		});
+	}
 }
 /*equalHeight end*/
 
@@ -200,7 +216,7 @@ function stickyLayout(){
 	}
 
 	/*menu*/
-	var $menu = $(".menu");
+	/*var $menu = $(".menu");
 	if ($menu.length) {
 		setTimeout(function () {
 			$menu.stick_in_parent({
@@ -209,7 +225,7 @@ function stickyLayout(){
 				offset_top: 162
 			});
 		}, 100);
-	}
+	}*/
 }
 /*sticky layout end*/
 
@@ -274,7 +290,7 @@ $.extend($.easing, {
 
 	$.fn.navScroller = function(options) {
 		settings = $.extend({
-			scrollToOffset: 160,
+			scrollToOffset: 30,
 			scrollSpeed: 800,
 			activateParentNode: true
 		}, options );
@@ -287,11 +303,12 @@ $.extend($.easing, {
 			disableScrollFn = true;
 			activateNav(navID);
 			populateDestinations(); //recalculate these!
-			$('html,body').animate({scrollTop: sections[navID] - settings.scrollToOffset},
-					settings.scrollSpeed, "easeInOutExpo", function(){
-						disableScrollFn = false;
-					}
-			);
+			if (!$(this).is(':animated')) {
+				$('html,body').stop().animate({scrollTop: sections[navID] - settings.scrollToOffset}, settings.scrollSpeed, "easeInOutExpo", function () {
+							disableScrollFn = false;
+						}
+				);
+			}
 		});
 
 		//populate lookup of clicable elements and destination sections
@@ -329,7 +346,7 @@ function scrollMenu(){
 
 	if($contactsAnchor.length){
 		$contactsAnchor.find('a').navScroller({
-			scrollToOffset: 160
+			scrollToOffset: 75
 		});
 	}
 }
