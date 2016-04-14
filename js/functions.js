@@ -274,7 +274,7 @@ $.extend($.easing, {
 
 	$.fn.navScroller = function(options) {
 		settings = $.extend({
-			scrollToOffset: 30,
+			scrollToOffset: 160,
 			scrollSpeed: 800,
 			activateParentNode: true
 		}, options );
@@ -329,19 +329,11 @@ function scrollMenu(){
 
 	if($contactsAnchor.length){
 		$contactsAnchor.find('a').navScroller({
-			scrollToOffset: 30
+			scrollToOffset: 160
 		});
 	}
 }
 /*scroll TO end*/
-
-/*content min height*/
-function contentMinHeight(){
-	$(window).on('load resizeByWidth', function () {
-		$('.main-content').css('min-height', $('.aside').outerHeight());
-	})
-}
-/*content min height end*/
 
 /*terminals switcher*/
 function terminalsSwitcherInit(){
@@ -391,6 +383,40 @@ function terminalsSwitcherInit(){
 }
 /*terminals switcher end*/
 
+/* tabs */
+function tabs() {
+	var $helpfulTabs = $('.helpful');
+	if ($helpfulTabs) {
+		$helpfulTabs.responsiveTabs({
+			active: 0,
+			rotate: false,
+			startCollapsed: 'accordion',
+			collapsible: 'accordion',
+			setHash: false,
+			animation: 'fade', // slide
+			duration: 300, // default 500
+			animationQueue: true,
+			scrollToAccordion: true
+			//scrollToAccordionOffset: true
+			//activate: function(e, tab) {
+			//	console.log(tab);
+			//},
+			//activateState: function(e, state) {
+			//	console.log(state);
+			//}
+		});
+	}
+}
+/* tabs end */
+
+/*content min height*/
+function contentMinHeight(){
+	$(window).on('load resizeByWidth', function () {
+		$('.main-content').css('min-height', $('.aside').outerHeight());
+	})
+}
+/*content min height end*/
+
 /** ready/load/resize document **/
 
 $(document).ready(function(){
@@ -405,6 +431,7 @@ $(document).ready(function(){
 	articlesLayout();
 	scrollMenu();
 	terminalsSwitcherInit();
+	tabs();
 
 	contentMinHeight();
 });
