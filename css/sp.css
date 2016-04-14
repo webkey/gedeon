@@ -19,6 +19,18 @@
 }
 /*social icons end*/
 
+/*slider icons*/
+[class*="slider-arrow-"]{
+	background:url(../img/sprite-slider.png) 0 0 no-repeat;
+	display: inline-block;
+	vertical-align: top;
+}
+.slider-arrow-l-gray{ background-position: 0 0; width: 10px; height: 18px; }
+.slider-arrow-r-gray{ background-position: 0 -38px; width: 10px; height: 18px; }
+.slider-arrow-l-blue{ background-position: 0 -76px; width: 10px; height: 18px; }
+.slider-arrow-r-blue{ background-position: 0 -114px; width: 10px; height: 18px; }
+/*slider icons end*/
+
 /*menu icons*/
 [class*="depict-menu-"]{
 	display: inline-block;
