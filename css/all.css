@@ -3053,10 +3053,10 @@ label.error{
 	box-shadow: none;
 	text-decoration: none;
 	color: #fff;
-	-webkit-transition-property: background, box-shadow;
-	transition-property: background, box-shadow;
-	-webkit-transition-duration: 0.3s;
-	transition-duration: 0.3s;
+	-webkit-transition-property: color, background, box-shadow;
+	transition-property: color, background, box-shadow;
+	-webkit-transition-duration: 0.2s;
+	transition-duration: 0.2s;
 }
 .years-list li.active a{
 	color: #006edc;
@@ -3067,8 +3067,8 @@ label.error{
 	border-bottom: 1px dotted #fff;
 	-webkit-transition-property: border;
 	transition-property: border;
-	-webkit-transition-duration: 0.3s;
-	transition-duration: 0.3s;
+	-webkit-transition-duration: 0.2s;
+	transition-duration: 0.2s;
 }
 .years-list a:hover > span,
 .years-list .active a > span{
