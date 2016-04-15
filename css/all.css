@@ -3318,7 +3318,47 @@ label.error{
 /*section target end*/
 
 /*section structure*/
-.sect-structure{}
+.sect-structure{
+	background: #e5e5e5;
+	padding-top: 50px;
+	position: relative;
+}
+.sect-structure h2{
+	text-align: center;
+	padding: 0 0 30px;
+}
+
+.structure{
+	width: 100%;
+	box-sizing: border-box;
+	margin: 0 -10px;
+}
+.structure:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.structure__col{
+	float: left;
+	width: 49.98%;
+	box-sizing: border-box;
+}
+
+.structure__head{
+	padding: 10px 10px;
+}
+
+.structure__foot{
+	position: relative;
+	margin: 0 -9989px 0 0;
+	padding: 10px 9999px 10px 10px;
+	background: #3794dc;
+}
+.structure__col:first-child .structure__foot{
+	background: #006edc;
+	margin: 0 0 0 -9989px;
+	padding-left: 9999px;
+}
 /*tabs*/
 .tabs-wrap{ background: #fff; }
 .tab-controls,

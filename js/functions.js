@@ -241,6 +241,27 @@ function equalHeightInit(){
 			});
 		});
 	}
+
+	/*profit*/
+	var $structure = $('.structure');
+	if ($structure.length) {
+		imagesLoaded($structure, function (instance) {
+			//console.log(instance);
+			$structure.find('.structure__head').equalHeight({
+				//amount: 2,
+				useParent: true,
+				parent: $structure,
+				resize: true
+			});
+
+			$structure.find('.structure__foot').equalHeight({
+				//amount: 2,
+				useParent: true,
+				parent: $structure,
+				resize: true
+			});
+		});
+	}
 }
 /*equalHeight end*/
 
