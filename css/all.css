@@ -3314,12 +3314,16 @@ label.error{
 	transform: translate(1px, -4px) rotate(45deg);
 }
 
+.targets__panel-wrap{
+	overflow: hidden;
+	height: 0;
+}
 .targets__panel{
 	padding: 0 42px 20px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	display: none;
+	/*display: none;*/
 }
 .targets__prime .targets__panel{
 	font-family: 'lato-black', Arial, Helvetica, sans-serif;

@@ -440,16 +440,22 @@ function targetsSwitcherInit(){
 			return false;
 		}
 
-		if($currentItem.hasClass(_activeClass)){
-			flag = false;
-		}
+		flag = !$currentItem.hasClass(_activeClass);
 
 		closeTerminalsDrop();
 
-		$currentItemDrop.stop().slideToggle(_duration, function () {
-			if (!$(this).is(':animated')) {
-				$('html,body').stop().animate({scrollTop: $currentItem.offset().top - 95}, 300, "easeInOutExpo");
-			}
+		if(!flag){
+			return false;
+		}
+
+		var height = Math.max.apply(Math, $currentItemDrop.closest('.targets__row').find($targetsItemDrop).map(function () {
+			return $(this).outerHeight(true);
+		}).get());
+
+		$currentItemDrop.closest('.targets__row').find($targetsItemDrop).parent().stop().animate({ height: height },_duration, function () {
+			//if (!$(this).is(':animated')) {
+			//	$('html,body').stop().animate({scrollTop: $currentItem.offset().top - 95}, 300, "easeInOutExpo");
+			//}
 		});
 		//$currentItemDrop.stop().slideToggle(_duration, function () {
 		//	if (!$(this).is(':animated')) {
@@ -473,7 +479,7 @@ function targetsSwitcherInit(){
 	});
 
 	function closeTerminalsDrop(){
-		$targetsItemDrop.stop().slideUp(_duration);
+		$targetsItemDrop.parent().stop().animate({height: 0},_duration)
 		$targetsItem.removeClass(_activeClass);
 	}
 
@@ -505,14 +511,13 @@ function tabs() {
 			duration: 300, // default 500
 			animationQueue: true,
 			scrollToAccordion: true,
-			load: function(event, firstTab){
-				console.log('event: ', event);
+			load: function(){
 				setTimeout(function () {
 					equalHeightStructure();
 				}, 100);
 			},
 			//scrollToAccordionOffset: true
-			activate: function(e, tab) {
+			activate: function() {
 				equalHeightStructure();
 			}
 			//activateState: function(e, state) {
