@@ -3197,7 +3197,6 @@ label.error{
 	color: #808080;
 }
 .sect-target__preview p{ padding: 0; }
-/*terminals*/
 
 /*targets*/
 .targets{
@@ -3317,9 +3316,10 @@ label.error{
 .targets__panel p{ padding: 0; }
 /*targets*/
 /*section target end*/
-/*terminals end*/
 
-/*tabs style default*/
+/*section structure*/
+.sect-structure{}
+/*tabs*/
 .tabs-wrap{ background: #fff; }
 .tab-controls,
 .user-content .tab-controls{
@@ -3392,7 +3392,8 @@ label.error{
 	background: #fff;
 	padding: 45px 0 0;
 }
-/*tabs style default end*/
+/*tabs end*/
+/*section structure end*/
 /*MAIN end*/
 
 /*MENU*/
