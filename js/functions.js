@@ -227,17 +227,15 @@ function equalHeightInit(){
 	}
 
 	/*profit*/
-	var profit = $('.section-profit__box');
-	if (profit.length) {
-		imagesLoaded(profit, function (instance) {
+	var $profit = $('.section-profit__box');
+	if ($profit.length) {
+		imagesLoaded($profit, function (instance) {
 			//console.log(instance);
-			profit.each(function () {
-				$('.section-profit__img', this).equalHeight({
-					//amount: 3,
-					useParent: true,
-					parent: profit,
-					resize: true
-				});
+			$profit.find('.section-profit__img').equalHeight({
+				//amount: 3,
+				useParent: true,
+				parent: $profit,
+				resize: true
 			});
 		});
 	}
@@ -292,7 +290,7 @@ function stickyLayout(){
 			$menu.stick_in_parent({
 				parent: '.main',
 				bottoming: '.footer',
-				offset_top: 162
+				offset_top: 140
 			});
 		}, 100);
 	}
@@ -453,6 +451,11 @@ function targetsSwitcherInit(){
 				$('html,body').stop().animate({scrollTop: $currentItem.offset().top - 95}, 300, "easeInOutExpo");
 			}
 		});
+		//$currentItemDrop.stop().slideToggle(_duration, function () {
+		//	if (!$(this).is(':animated')) {
+		//		$('html,body').stop().animate({scrollTop: $currentItem.offset().top - 95}, 300, "easeInOutExpo");
+		//	}
+		//});
 		$currentItem.toggleClass(_activeClass, flag);
 
 
@@ -475,16 +478,15 @@ function targetsSwitcherInit(){
 	}
 
 	/*targets*/
-	var targets = $('.targets');
-	if (targets.length) {
-		targets.each(function () {
-			$('h3', this).equalHeight({
-				//amount: 3,
+	var $targets = $('.targets');
+	if ($targets.length) {
+		setTimeout(function () {
+			$targets.find('h3').equalHeight({
 				useParent: true,
-				parent: targets,
+				parent: $targets,
 				resize: true
-			});
-		});
+			}, 100);
+		})
 	}
 }
 /*terminals switcher end*/
@@ -508,11 +510,11 @@ function tabs() {
 				setTimeout(function () {
 					equalHeightStructure();
 				}, 100);
-			}
+			},
 			//scrollToAccordionOffset: true
-			//activate: function(e, tab) {
-			//	console.log(tab);
-			//},
+			activate: function(e, tab) {
+				equalHeightStructure();
+			}
 			//activateState: function(e, state) {
 			//	console.log(state);
 			//}

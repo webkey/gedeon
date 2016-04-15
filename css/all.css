@@ -107,6 +107,10 @@ mark {
 	font-style: inherit;
 	font-weight: inherit;
 }
+.nobr{
+	display: inline-block;
+	vertical-align: top;
+}
 b, strong, th{
 	font-family:'lato-bold', Arial, Helvetica, sans-serif;
 	font-weight:normal;
@@ -3248,6 +3252,16 @@ label.error{
 	font-size: 12px;
 	letter-spacing: 0.1em;
 }
+.targets__item.targets__prime h3{
+	font-family: 'Roboto Slab', 'Times New Roman', Times, serif;
+	line-height: 30px;
+	text-transform: none;
+	text-align: center;
+}
+.targets__item.targets__prime h3 .text-inner{
+	font-size: 24px;
+	letter-spacing: normal;
+}
 .targets__angle{
 	position: absolute;
 	top: 50%;
@@ -3306,6 +3320,13 @@ label.error{
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	display: none;
+}
+.targets__prime .targets__panel{
+	font-family: 'lato-black', Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 40px 42px 60px;
 }
 .targets__panel p{ padding: 0; }
 /*targets*/
@@ -3479,7 +3500,7 @@ label.error{
 }
 .header-fixed .menu{
 	position: fixed;
-	top: 162px;
+	top: 140px;
 }
 .menu-list,
 .user-content .menu-list{
@@ -3553,6 +3574,7 @@ label.error{
 	padding: 0 16px;
 	opacity: 0;
 	background: #1a1a1a;
+	box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
 	-webkit-transform: translate(-100%, 0);
 	-ms-transform: translate(-100%, 0);
 	transform: translate(-100%, 0);
