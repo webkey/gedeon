@@ -241,7 +241,9 @@ function equalHeightInit(){
 			});
 		});
 	}
+}
 
+function equalHeightStructure(){
 	/*profit*/
 	var $structure = $('.structure');
 	if ($structure.length) {
@@ -489,7 +491,7 @@ function targetsSwitcherInit(){
 
 /* tabs */
 function tabs() {
-	var $helpfulTabs = $('.helpful');
+	var $helpfulTabs = $('.tabs-wrap');
 	if ($helpfulTabs) {
 		$helpfulTabs.responsiveTabs({
 			active: 0,
@@ -497,10 +499,16 @@ function tabs() {
 			startCollapsed: 'accordion',
 			collapsible: 'accordion',
 			setHash: false,
-			animation: 'fade', // slide
+			//animation: 'fade', // slide
 			duration: 300, // default 500
 			animationQueue: true,
-			scrollToAccordion: true
+			scrollToAccordion: true,
+			load: function(event, firstTab){
+				console.log('event: ', event);
+				setTimeout(function () {
+					equalHeightStructure();
+				}, 100);
+			}
 			//scrollToAccordionOffset: true
 			//activate: function(e, tab) {
 			//	console.log(tab);
@@ -530,6 +538,7 @@ $(document).ready(function(){
 	stateFields();
 	slidersInit();
 	equalHeightInit();
+	equalHeightStructure();
 	stickyLayout();
 	headerFixed();
 	articlesLayout();

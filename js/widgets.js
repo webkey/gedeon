@@ -91,6 +91,7 @@
 
 /**
  * responsive-tabs
+ * http://jellekralt.github.io/Responsive-Tabs/
  *
  * jQuery plugin that provides responsive tab functionality. The tabs transform to an accordion when it reaches a CSS breakpoint.
  *
