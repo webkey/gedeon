@@ -157,13 +157,13 @@
 																<label for="sing-up__form-birth">Дата рождения: <span class="form-mark">*</span></label>
 															</div>
 															<div class="form-row birth-fields">
-																<div class="form-col" style="width: 26.7%">
+																<div class="form-col" style="width: 29%">
 																	<input type="text" placeholder="День" id="sing-up__form-birth" />
 																</div>
-																<div class="form-col" style="width: 46.6%">
+																<div class="form-col" style="width: 42%">
 																	<input type="text" placeholder="Месяц" />
 																</div>
-																<div class="form-col" style="width: 26.7%">
+																<div class="form-col" style="width: 29%">
 																	<input type="text" placeholder="Год" />
 																</div>
 															</div>
@@ -174,7 +174,7 @@
 																<label for="sing-up__form-region">Область: <span class="form-mark">*</span></label>
 															</div>
 															<div class="select">
-																<select name="filter-type" id="sing-up__form-region">
+																<select class="cselect" name="filter-type" id="sing-up__form-region">
 																	<option value="1">Минская</option>
 																	<option value="2">Брестская </option>
 																	<option value="1">Гомельская</option>
@@ -198,14 +198,17 @@
 																<label for="sing-up__form-work">Место работы: <span class="form-mark">*</span></label>
 															</div>
 															<div class="select">
-																<select name="filter-type" id="sing-up__form-work">
-																	<option value="1">- Место работы -</option>
+																<select class="cselect" name="filter-type" id="sing-up__form-work">
+																	<option value="1">&nbsp;</option>
 																	<option value="2">Тут</option>
 																	<option value="1">Там</option>
 																	<option value="3">То тут то там</option>
-																	<option value="4">В активном поиске хорошего места работы с приличным окладом</option>
-																	<option value="5">Не работаю</option>
+																	<option value="4">Очень длиннный пунт, в котором описано много менст работы</option>
+																	<option value="5" data-other="true">Другое учреждение</option>
 																</select>
+															</div>
+															<div class="input-wrap add-input add-input-js">
+																<input type="text" />
 															</div>
 														</div>
 
@@ -214,14 +217,18 @@
 																<label for="sing-up__form-specialty">Специальность: <span class="form-mark">*</span></label>
 															</div>
 															<div class="select">
-																<select name="filter-type" id="sing-up__form-specialty">
-																	<option value="1">- Специальность -</option>
+																<select class="cselect" name="filter-type" id="sing-up__form-specialty">
+																	<option value="1"></option>
 																	<option value="1">Есть</option>
 																	<option value="2">Есть и не одна</option>
-																	<option value="5">Нет</option>
-																	<option value="3">Что это?</option>
-																	<option value="4">Если бы каждому такую замечательную специальность, как у меня</option>
+																	<option value="3">Нет</option>
+																	<option value="4">Что это?</option>
+																	<option value="5">Очень длиннный пунт, в котором описано много менст работы</option>
+																	<option value="6" data-other="true">Другая специальность</option>
 																</select>
+															</div>
+															<div class="input-wrap add-input add-input-js">
+																<input type="text" />
 															</div>
 														</div>
 													</div>

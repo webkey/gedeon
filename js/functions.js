@@ -65,10 +65,14 @@ function stateFields(){
 
 		$thisField
 			.prev()
+			.addClass('focus')
+			.end()
+			.closest('.input-wrap')
 			.addClass('focus');
 
 		$thisField
-			.parent()
+			.closest('.form-line')
+			.find('.label-holder')
 			.addClass('focus')
 			.prev()
 			.addClass('focus');
@@ -78,10 +82,14 @@ function stateFields(){
 
 		$thisField
 			.prev()
+			.removeClass('focus')
+			.end()
+			.closest('.input-wrap')
 			.removeClass('focus');
 
 		$thisField
-			.parent()
+			.closest('.form-line')
+			.find('.label-holder')
 			.removeClass('focus')
 			.prev()
 			.removeClass('focus');
@@ -511,7 +519,7 @@ function tabs() {
 			//animation: 'fade', // slide
 			duration: 300, // default 500
 			animationQueue: true,
-			scrollToAccordion: true,
+			//scrollToAccordion: true,
 			load: function(){
 				setTimeout(function () {
 					equalHeightStructure();
@@ -528,6 +536,135 @@ function tabs() {
 	}
 }
 /* tabs end */
+
+/* multiselect init */
+// add ui position add class
+function addPositionClass(position, feedback, obj){
+	removePositionClass(obj);
+	obj.css( position );
+	obj
+		.addClass( feedback.vertical )
+		.addClass( feedback.horizontal );
+}
+// add ui position remove class
+function removePositionClass(obj){
+	obj.removeClass('top');
+	obj.removeClass('bottom');
+	obj.removeClass('center');
+	obj.removeClass('left');
+	obj.removeClass('right');
+}
+function customSelect(select){
+	if ( select.length ) {
+		selectArray = new Array();
+		select.each(function(selectIndex, selectItem){
+			var placeholderText = $(selectItem).attr('data-placeholder');
+			var flag = true;
+			if ( placeholderText === undefined ) {
+				placeholderText = $(selectItem).find(':selected').html();
+				flag = false;
+			}
+			var classes = $(selectItem).attr('class');
+			selectArray[selectIndex] = $(selectItem).multiselect({
+				header: false,
+				height: 'auto',
+				minWidth: 50,
+				selectedList: 1,
+				classes: classes,
+				multiple: false,
+				noneSelectedText: placeholderText,
+				show: ['fade', 100],
+				hide: ['fade', 100],
+				create: function(event){
+					var select = $(this);
+					var button = $(this).multiselect('getButton');
+					var widget = $(this).multiselect('widget');
+					button.wrapInner('<span class="select-inner"></span>');
+					button.find('.ui-icon').append('<i class="arrow-select"></i>')
+						.siblings('span').addClass('select-text');
+					widget.find('.ui-multiselect-checkboxes li:last')
+						.addClass('last')
+						.siblings().removeClass('last');
+					if ( flag ) {
+						$(selectItem).multiselect('uncheckAll');
+						$(selectItem)
+							.multiselect('widget')
+							.find('.ui-state-active')
+							.removeClass('ui-state-active')
+							.find('input')
+							.removeAttr('checked');
+					}
+				},
+				selectedText: function(number, total, checked){
+					var checkedText = checked[0].title;
+					return checkedText;
+				},
+				position: {
+					my: 'left top',
+					at: 'left bottom',
+					using: function( position, feedback ) {
+						addPositionClass(position, feedback, $(this));
+					}
+				},
+				open: function () {
+					$(this)
+						.closest('.select')
+						.addClass('focus')
+						.prev('.label-holder')
+						.addClass('focus');
+				},
+				close: function () {
+					$(this)
+						.closest('.select')
+						.removeClass('focus')
+						.prev('.label-holder')
+						.removeClass('focus');
+				}
+			});
+		});
+		$(window).resize(selectResize);
+	}
+}
+function selectResize(){
+	if ( selectArray.length ) {
+		$.each(selectArray, function(i, el){
+			var checked = $(el).multiselect('getChecked');
+			var flag = true;
+			if ( !checked.length ) {
+				flag = false
+			}
+			$(el).multiselect('refresh');
+			if ( !flag ) {
+				$(el).multiselect('uncheckAll');
+				$(el)
+					.multiselect('widget')
+					.find('.ui-state-active')
+					.removeClass('ui-state-active')
+					.find('input')
+					.removeAttr('checked');
+			}
+			$(el).multiselect('close');
+		});
+	}
+}
+/*choose "other" param*/
+$('select').on('change', function() {
+	var $currentItem = $(this);
+	var other = $currentItem.find('option:selected').data('other');
+	console.log('$(this).val(): ', $(this).val());
+	console.log('other: ', other);
+	var addInputJs = $(this).closest('.form-line').find('.add-input-js');
+	addInputJs.hide();
+
+	if(other){
+		addInputJs
+			.show()
+			.find('input')
+			.focus();
+	}
+});
+/*choose "other" param end*/
+/* multiselect init end */
 
 /*content min height*/
 function contentMinHeight(){
@@ -553,6 +690,9 @@ $(document).ready(function(){
 	scrollMenu();
 	targetsSwitcherInit();
 	tabs();
+	if(DESKTOP){
+		customSelect($('select.cselect'));
+	}
 
 	contentMinHeight();
 });
