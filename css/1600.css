@@ -1,9 +1,23 @@
 @media only screen and (max-width: 1599px){}
 
 .articles{
-	width: 968px;
+	width: 936px;
 }
 
 .tests{
-	width: 968px;
+	width: 936px;
 }
+
+/*PRE FOOTER*/
+/*tray*/
+.tray{
+	padding-left: 90px;
+	padding-right: 90px;
+	max-width: 1040px;
+}
+.tray__col{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+/*tray end*/
+/*PRE FOOTER*/

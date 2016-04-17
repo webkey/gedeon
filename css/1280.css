@@ -1,0 +1,20 @@
+@media only screen and (max-width: 1279px){}
+
+.articles{
+	width: 936px;
+}
+
+.tests{
+	width: 936px;
+}
+
+/*PRE FOOTER*/
+.pre-footer-logo{
+	width: 33.3%;
+}
+/*tray*/
+.tray{
+	max-width: 790px;
+}
+/*tray end*/
+/*PRE FOOTER*/
