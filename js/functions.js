@@ -97,6 +97,63 @@ function stateFields(){
 }
 /*state form fields*/
 
+/*sidebar switcher for mobile*/
+function sidebarSwitcher(){
+	var $btnSwitcher = $('.btn-menu');
+	if(!$btnSwitcher.length){
+		return;
+	}
+
+	var $body = $('body');
+	var $overlay = $('<div class="aside-panel-overlay">');
+	var showClass = 'aside-show';
+	var btnActiveClass = 'active';
+	var animateSpeed = 200;
+
+	$btnSwitcher.on('click', function (e) {
+		e.preventDefault();
+
+		var $currentBtn = $(this);
+
+		if($currentBtn.hasClass(btnActiveClass)){
+			closeSiteMap();
+			return;
+		}
+
+		$currentBtn.toggleClass(btnActiveClass, !$currentBtn.hasClass(btnActiveClass));
+		$body.toggleClass(showClass, $currentBtn.hasClass(btnActiveClass));
+
+		$overlay
+				.insertBefore($('.aside'))
+				.stop().fadeOut(0, function () {
+			$overlay.fadeIn(animateSpeed);
+		});
+
+		e.stopPropagation();
+	});
+
+	$(document).click(function () {
+		closeSiteMap();
+	});
+
+	$('.aside').on('click', function(e){
+		e.stopPropagation();
+	});
+
+	$('.aside-panel-close').on('click', function(e){
+		closeSiteMap();
+	});
+
+	function closeSiteMap(){
+		$btnSwitcher.removeClass(btnActiveClass);
+		$body.removeClass(showClass);
+		$overlay.stop().fadeOut(animateSpeed, function () {
+			$overlay.remove();
+		})
+	}
+}
+/*sidebar switcher for mobile end*/
+
 /*sliders*/
 function slidersInit(){
 	/*others-list*/
@@ -133,7 +190,7 @@ function slidersInit(){
 	/*tray*/
 	var $tray = $('.tray');
 	if($tray.length){
-		$tray.on('init', function (event, slick) {
+		var $traySlider = $tray.on('init', function (event, slick) {
 			if (slick.currentSlide == 0) {
 				$(this).css({'visibility':'visible'});
 			}
@@ -145,17 +202,7 @@ function slidersInit(){
 			dots: true,
 			arrows: true,
 			responsive: [{
-				breakpoint: 1600,
-				settings: {
-					slidesToShow: 3
-				}
-			},{
 				breakpoint: 1280,
-				settings: {
-					slidesToShow: 2
-				}
-			},{
-				breakpoint: 960,
 				settings: {
 					slidesToShow: 3
 				}
@@ -167,6 +214,10 @@ function slidersInit(){
 			}]
 		});
 	}
+
+	$(window).on('resizeByWidth', function () {
+		$traySlider.slick('slickGoTo', 0);
+	});
 
 	/*exam slider*/
 	var $examSlider = $('.exam-slider');
@@ -720,6 +771,7 @@ $(document).ready(function(){
 	footerBottom();
 	stateButtons();
 	stateFields();
+	sidebarSwitcher();
 	slidersInit();
 	equalHeightInit();
 	equalHeightStructure();

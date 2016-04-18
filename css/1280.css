@@ -1,20 +1,93 @@
 @media only screen and (max-width: 1279px){}
 
+/*HEADER*/
+/*logo*/
+.logo{
+	background: url(../img/logo-sm.png) 0 0 no-repeat;
+	width: 216px;
+	height: 50px;
+}
+/*logo end*/
+
+/*h-text*/
+.h-text{
+	display: none;
+}
+/*h-text end*/
+
+/*main navigation*/
+.nav-list{
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: 0.025em;
+}
+.header-fixed .nav-list {
+	font-size: 12px;
+	line-height: 17px;
+	letter-spacing: 0.025em;
+}
+/*main navigation end*/
+/*HEADER END*/
+
+/*articles*/
 .articles{
-	width: 936px;
+	width: 612px;
+	padding-bottom: 26px;
+}
+.articles__item{
+	padding-bottom: 26px;
+}
+.articles__all,
+.articles__item{
+	position: relative;
+	padding-left: 13px;
+	padding-right: 13px;
+}
+.caption{
+	background-position: 23px 50%;
+	-webkit-background-size: 52px;
+	background-size: 52px;
+}
+.caption:before{
+	height: 10px;
+}
+.caption__inner{
+	padding: 24px 0 24px 96px;
+	text-align: left;
+}
+.caption__inner h2 {
+	font-size: 18px;
+	padding: 0 0 8px;
+	letter-spacing: 0.05em;
+}
+.caption__inner img{
+	display: none;
 }
 
 .tests{
-	width: 936px;
+	width: 612px;
 }
+/*articles end*/
 
 /*PRE FOOTER*/
 .pre-footer-logo{
-	width: 33.3%;
+	display: none;
 }
 /*tray*/
 .tray{
-	max-width: 790px;
+	padding-left: 82px;
+	padding-right: 82px;
+}
+.tray__col{
+	padding-left: 8px;
+	padding-right: 8px;
+	text-align: center;
+}
+.tray__align{
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+	max-width: 240px;
 }
 /*tray end*/
 /*PRE FOOTER*/

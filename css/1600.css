@@ -9,15 +9,14 @@
 }
 
 /*PRE FOOTER*/
+.pre-footer-logo{
+	display: none;
+}
 /*tray*/
 .tray{
-	padding-left: 90px;
-	padding-right: 90px;
-	max-width: 1040px;
-}
-.tray__col{
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-left: 32px;
+	padding-right: 32px;
+	/*max-width: 1040px;*/
 }
 /*tray end*/
 /*PRE FOOTER*/

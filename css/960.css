@@ -1,59 +1,6 @@
 @media only screen and (max-width: 959px){}
 
-/*HEADER*/
-/*logo*/
-.logo{
-	background: url(../img/logo-sm.png) 0 0 no-repeat;
-	width: 216px;
-	height: 50px;
-}
-/*logo end*/
-
-/*h-text*/
-.h-text{
-	display: none;
-}
-/*h-text end*/
-
-/*main navigation*/
-.nav-list{
-	font-size: 14px;
-	line-height: 17px;
-	letter-spacing: 0.025em;
-}
-.header-fixed .nav-list {
-	font-size: 12px;
-	line-height: 17px;
-	letter-spacing: 0.025em;
-}
-/*main navigation end*/
-/*HEADER END*/
-
-/*articles*/
-.articles{
-	width: 612px;
-	padding-bottom: 26px;
-}
-.articles__item{
-	padding-bottom: 26px;
-}
-.articles__all,
-.articles__item{
-	position: relative;
-	padding-left: 13px;
-	padding-right: 13px;
-}
-
-
-.tests{
-	width: 612px;
-}
-/*articles end*/
-
 /*PRE FOOTER*/
-.pre-footer-logo{
-	display: none;
-}
 .tray{
 	max-width: 1040px;
 }
