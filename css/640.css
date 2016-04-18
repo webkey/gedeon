@@ -1,20 +1,129 @@
 @media only screen and (max-width: 639px){}
 
 /*HEADER*/
+/*sub menu*/
+.header__top{
+	padding: 0;
+	position: relative;
+	overflow: visible;
+	z-index: 1;
+}
+.sub-menu { padding: 20px 0 18px; }
+.sub-menu li{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+/*sub menu end*/
+
 /*logo*/
 .logo{
-	background: url(../img/logo-short.png) 0 0 no-repeat;
-	width: 50px;
+	background: url(../img/logo-sm.png) 0 0 no-repeat;
+	width: 216px;
 	height: 50px;
+	left: 20px;
+	top: 84px;
 }
-/*logo end*/
-/*HEADER END*/
-
-/*PRE FOOTER*/
-.pre-footer-logo{
+.header-fixed .logo{
+	opacity: 1;
+	-webkit-transform: scale(1, 1);
+	-ms-transform: scale(1, 1);
+	transform: scale(1, 1);
+}
+.header-fixed .logo{
 	display: none;
 }
-.tray{
-	max-width: 790px;
+.header-fixed .logo-short{
+	margin: 0;
+	top: 0;
+	left: 8px;
+	-webkit-background-size: contain;
+	background-size: contain;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+/*logo end*/
+
+/*button aside*/
+.btn-aside{
+	top: 100px;
+	right: 20px;
+}
+.header-fixed .btn-aside {
+	top: 17px;
+	right: 20px;
+}
+/*button aside end*/
+
+/*main navigation*/
+.main-nav{
+	background: #fff;
+	height: 90px;
+}
+.header-fixed .main-nav-wrap,
+.header-fixed .main-nav,
+.header-fixed .main-nav__holder{
+	height: 50px;
+}
+.nav{ display: none; }
+/*main navigation end*/
+/*HEADER END*/
+
+/*MAIN CONTENT*/
+.articles {
+	max-width: 306px;
+	padding-bottom: 26px;
+}
+.btn-all__img { max-width: 35%; }
+.btn-all__inner { max-width: 66%; }
+/*MAIN CONTENT end*/
+
+/*ASIDE*/
+.aside .nav-list{
+	display: block;
+}
+.header-fixed .aside .nav-list {
+	font-size: 14px;
+	line-height: 18px;
+	letter-spacing: 0.025em;
+}
+.aside-show .btn-aside {
+	position: fixed;
+	right: 20px;
+	top: 24px;
+}
+/*ASIDE end*/
+
+/*PRE FOOTER*/
+.pre-footer{ padding-bottom: 20px; }
+.pre-footer-logo{ display: none; }
+.tray{ padding: 0 12px 20px; }
+.tray .slick-arrow{
+	width: 40px;
+	height: 40px;
+	top: auto;
+	bottom: 10px;
+	z-index: 3;
+}
+.tray .slick-prev { left: 20px; }
+.tray .slick-next { right: 20px; }
+.tray .slick-dots{
+	padding-left: 48px;
+	padding-right: 48px;
 }
 /*PRE FOOTER END*/
+
+.footer-holder{ padding: 0; }
+.footer-holder:before{ content: none; }
+.footer-col{
+	display: block;
+	width: auto;
+	border-top: 1px solid #0054a8;
+	padding: 15px 20px;
+	text-align: center;
+	font-size: 14px;
+	line-height: 24px;
+	letter-spacing: 0.1em;
+}
+.footer-col:first-child{
+	border: none;
+}

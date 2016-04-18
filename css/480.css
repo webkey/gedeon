@@ -1,1 +1,41 @@
 @media only screen and (max-width: 479px){}
+
+/*ASIDE*/
+.aside{ width: 250px; }
+.aside-show .btn-aside {
+	position: fixed;
+	right: 20px;
+	top: 24px;
+	-webkit-transform: translate(-250px, 0);
+	-ms-transform: translate(-250px, 0);
+	transform: translate(-250px, 0);
+}
+
+.search-form {
+	height: auto;
+	padding: 20px;
+}
+.cabinet__head{ padding: 18px 20px; }
+.cabinet__btn { font-size: 20px; }
+.cabinet__options a{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.cabinet__list-text{
+	font-size: 16px;
+	padding-right: 64px;
+}
+.cabinet-points table td,
+.cabinet-points table th{
+	font-size: 15px;
+	padding: 12px 8px 12px;
+}
+.cabinet-points table th{ letter-spacing: normal; }
+.cabinet-points table td:first-child,
+.cabinet-points table th:first-child{ padding-left: 20px; }
+.tests-slider{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.exam-counter{ padding-bottom: 30px; }
+/*ASIDE end*/

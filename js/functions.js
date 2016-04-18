@@ -99,13 +99,13 @@ function stateFields(){
 
 /*sidebar switcher for mobile*/
 function sidebarSwitcher(){
-	var $btnSwitcher = $('.btn-menu');
+	var $btnSwitcher = $('.btn-aside');
 	if(!$btnSwitcher.length){
 		return;
 	}
 
-	var $body = $('body');
-	var $overlay = $('<div class="aside-panel-overlay">');
+	var $html = $('html');
+	var $overlay = $('<div class="aside-overlay">');
 	var showClass = 'aside-show';
 	var btnActiveClass = 'active';
 	var animateSpeed = 200;
@@ -121,7 +121,7 @@ function sidebarSwitcher(){
 		}
 
 		$currentBtn.toggleClass(btnActiveClass, !$currentBtn.hasClass(btnActiveClass));
-		$body.toggleClass(showClass, $currentBtn.hasClass(btnActiveClass));
+		$html.toggleClass(showClass, $currentBtn.hasClass(btnActiveClass));
 
 		$overlay
 				.insertBefore($('.aside'))
@@ -146,7 +146,7 @@ function sidebarSwitcher(){
 
 	function closeSiteMap(){
 		$btnSwitcher.removeClass(btnActiveClass);
-		$body.removeClass(showClass);
+		$html.removeClass(showClass);
 		$overlay.stop().fadeOut(animateSpeed, function () {
 			$overlay.remove();
 		})
@@ -207,9 +207,14 @@ function slidersInit(){
 					slidesToShow: 3
 				}
 			},{
-				breakpoint: 640,
+				breakpoint: 980,
 				settings: {
 					slidesToShow: 2
+				}
+			},{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1
 				}
 			}]
 		});
@@ -367,17 +372,24 @@ function stickyLayout(){
 	/*aside*/
 	var $aside = $(".aside");
 	if ($aside.length) {
-		setTimeout(function () {
-			$aside.stick_in_parent({ // sticky element do not have relative
-				parent: '.main-holder', // parent must have relative
-				bottoming: '.pre-footer'
-			});
-		}, 100);
-		//$(window).on('load resize', function () {
-		//	if($(window).outerWidth() < 1350){
-		//		$('.aside').trigger("sticky_kit:detach").attr('style','');
-		//	}
-		//})
+
+		var resizeTimer;
+
+		$(window).on('load resize', function () {
+			clearTimeout(resizeTimer);
+			resizeTimer = setTimeout(function () {
+				$aside.stick_in_parent({ // sticky element do not have relative
+					parent: '.main-holder', // parent must have relative
+					bottoming: '.pre-footer'
+				});
+			}, 100);
+		});
+
+		$(window).on('load resize', function () {
+			if($(window).width() < 960){
+				$aside.trigger("sticky_kit:detach").attr('style','');
+			}
+		})
 	}
 
 	/*menu*/
@@ -403,11 +415,17 @@ function headerFixed(){
 		return;
 	}
 
-	$headerPanelWrap.css({
-		height: 105
-	});
+	//var resizeTimer;
 
 	$(window).on('load scroll resizeByWidth', function () {
+		//clearTimeout(resizeTimer);
+		//resizeTimer = setTimeout(function () {
+		//	$headerPanelWrap.css({
+		//		height: $headerPanel.outerHeight()
+		//	});
+		//}, 500);
+
+
 		var scrollTop = $(window).scrollTop();
 
 		$page.toggleClass('header-fixed', scrollTop >= $headerPanelWrap.offset().top);
