@@ -1,11 +1,13 @@
 @media only screen and (max-width: 959px){}
 /*MAIN CONTENT*/
-.main-content{
-	margin-right: 0;
-}
+.main-content{ margin-right: 0; }
 /*MAIN CONTENT END*/
 
 /*HEADER*/
+.enter-page .header{
+	padding: 0;
+	margin: 0;
+}
 .header__top{
 	padding-left: 110px;
 	padding-right: 110px;
@@ -76,9 +78,35 @@
 /*main navigation end*/
 /*HEADER END*/
 
+/*MAIN CONTENT*/
+/*enter*/
+.enter__caption h1{
+	font-size: 20px;
+	line-height: 30px;
+	letter-spacing: 0.05em;
+}
+.enter__login h2{
+	font-size: 23px;
+	line-height: 33px;
+	letter-spacing: 0.05em;
+}
+/*enter end*/
+
+/*sing up*/
+.sing-up__col{ padding: 0 2%; }
+.sing-up__body { padding: 50px 20px 0; }
+.sing-up .form-note {
+	margin-left: -20px;
+	margin-right: -20px;
+	padding: 30px 20px;
+}
+/*sing up end*/
+/*MAIN CONTENT end*/
+
 /*ASIDE*/
 /*button menu*/
 .btn-aside{ display: block; }
+.enter-page .btn-aside{ display: none; }
 .header-fixed .btn-aside{
 	position: fixed;
 	top: 23px;
@@ -132,29 +160,21 @@
 	transform: translate(0, 0);
 }
 .aside__holder:after{ content: none; }
-.cabinet__btn{
-	font-size: 24px;
-}
+.cabinet__btn{ font-size: 24px; }
 .aside-overlay,
-.aside-show .aside-overlay {
-	width: 100%;
-}
+.aside-show .aside-overlay { width: 100%; }
 /*ASIDE end*/
 
 /*PRE FOOTER*/
-.tray{
-	max-width: 1040px;
-}
+.tray{ max-width: 1040px; }
 /*PRE FOOTER END*/
 
+/*FOOTER*/
 .footer-holder{
 	padding-left: 20px;
 	padding-right: 20px;
 }
-.footer-col{
-	width: 39.98%;
-}
+.footer-col{ width: 39.98%; }
 .footer-col_left,
-.footer-col_right{
-	width: 29.98%;
-}
+.footer-col_right{ width: 29.98%; }
+/*FOOTER end*/

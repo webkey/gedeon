@@ -982,7 +982,8 @@ label.error{
 	color: #ccc;
 }
 
-/*select*/
+/*custom select style*/
+/*select css3*/
 .select{
 	position: relative;
 	margin: 0 0 28px;
@@ -1036,6 +1037,10 @@ label.error{
 	background: #fff;
 	box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.25);
 }
+.birth-fields .select-inner{
+	text-align: center;
+}
+
 .select:before,
 .select:after,
 button.cselect .ui-icon .arrow-select:before,
@@ -1064,15 +1069,15 @@ button.cselect .ui-icon .arrow-select:after{
 	transform: rotate(-45deg);
 	right: 14px;
 }
-.select:before,
-.select:after,
-button.cselect .ui-icon .arrow-select:before,
-button.cselect .ui-icon .arrow-select:after{
+.select.focus:before,
+.select.focus:after,
+.focus button.cselect .ui-icon .arrow-select:before,
+.focus button.cselect .ui-icon .arrow-select:after{
 	border-color: #006edc;
 }
-/*select end*/
+/*select css3 end*/
 
-/*custom select style*/
+/*multiselect button*/
 button.cselect {
 	display:block;
 	position:relative;
@@ -1116,7 +1121,7 @@ div.cselect .ui-multiselect-checkboxes {
 	margin:0;
 	list-style-type:none;
 	height: auto !important;
-	max-height:272px;
+	max-height:288px;
 	overflow:auto;
 	background-color:#fff;
 	border: 2px solid #006edc;
@@ -1152,6 +1157,23 @@ div.cselect .ui-multiselect-checkboxes input[type="radio"] + span{ padding-left:
 div.cselect .ui-multiselect-checkboxes input[type="radio"] + span:before,
 div.cselect .ui-multiselect-checkboxes input[type="radio"] + span:after{ content: none; }
 /*multiselect menu end*/
+
+.select.no-arrow select,
+.select.no-arrow button.cselect .select-inner,
+div.cselect-center .ui-multiselect-checkboxes label{
+	padding-left: 12px;
+	padding-right: 12px;
+	text-align: center;
+}
+div.cselect-center .ui-multiselect-checkboxes label{
+	text-align: left;
+}
+.select.no-arrow:before,
+.select.no-arrow:after,
+.no-arrow button.cselect .ui-icon .arrow-select:before,
+.no-arrow button.cselect .ui-icon .arrow-select:after{
+	content: none;
+}
 /*custom select style end*/
 /*elements form style end*/
 
@@ -1260,6 +1282,7 @@ div.cselect .ui-multiselect-checkboxes input[type="radio"] + span:after{ content
 	background: #006edc;
 }
 .alt-view .main-holder:before{ background: #fff; }
+.enter-page .main-holder{ box-shadow: none; }
 .main-frame{
 	float: left;
 	width: 100%;
@@ -1271,6 +1294,7 @@ div.cselect .ui-multiselect-checkboxes input[type="radio"] + span:after{ content
 	margin: 0 320px 0 0;
 	min-height: 50px;
 }
+.enter-page .main-content{ background: #006edc; }
 
 .aside__holder{
 	overflow: hidden;
@@ -1322,6 +1346,7 @@ div.cselect .ui-multiselect-checkboxes input[type="radio"] + span:after{ content
 	height: 112px;
 	padding: 0 30px 30px;
 	box-sizing: border-box;
+	position: relative;
 	overflow: hidden;
 }
 /*logo*/
@@ -1958,7 +1983,7 @@ html.desktop .nav-list a:hover:before{
 /*video end*/
 
 /*enter*/
-.enter-wrap{ padding: 60px 32px 75px; }
+.enter-wrap{ padding: 50px 32px; }
 .enter{
 	position: relative;
 	overflow: hidden;
@@ -1967,8 +1992,8 @@ html.desktop .nav-list a:hover:before{
 	margin: 0 auto;
 	border-radius: 5px;
 	background: #227fdd url(../img/img-enter.jpg) no-repeat 0 50%;
-	-webkit-background-size: 50%;
-	background-size: 50%;
+	-webkit-background-size: contain;
+	background-size: contain;
 	box-shadow: 0 10px 65px rgba(0, 0, 0, 0.35);
 }
 .enter:before{
@@ -2060,7 +2085,8 @@ html.desktop .nav-list a:hover:before{
 
 /*sing up*/
 .sing-up-wrap{
-	max-width: 860px;
+	width: 860px;
+	max-width: 90%;
 	margin: 0 auto;
 	padding: 50px 0;
 }
@@ -2101,6 +2127,7 @@ html.desktop .nav-list a:hover:before{
 	background: #fff;
 	padding: 50px 4.7% 0;
 	overflow: hidden;
+	border-radius: 0 0 5px 5px;
 }
 .sing-up__form{
 	width: 100%;
@@ -2159,7 +2186,9 @@ html.desktop .nav-list a:hover:before{
 .get-confirm{
 	text-align: center;
 	font-size: 12px;
+	line-height: 1.4;
 	letter-spacing: 0.1em;
+	padding: 6px 0 0;
 }
 .get-confirm a{
 	position: relative;

@@ -218,11 +218,12 @@ function slidersInit(){
 				}
 			}]
 		});
+
+		$(window).on('resizeByWidth', function () {
+			$traySlider.slick('slickGoTo', 0);
+		});
 	}
 
-	$(window).on('resizeByWidth', function () {
-		$traySlider.slick('slickGoTo', 0);
-	});
 
 	/*exam slider*/
 	var $examSlider = $('.exam-slider');
@@ -718,14 +719,16 @@ function customSelect(select){
 					$(this)
 						.closest('.select')
 						.addClass('focus')
-						.prev('.label-holder')
+						.closest('.form-line')
+						.find('.label-holder')
 						.addClass('focus');
 				},
 				close: function () {
 					$(this)
 						.closest('.select')
 						.removeClass('focus')
-						.prev('.label-holder')
+						.closest('.form-line')
+						.find('.label-holder')
 						.removeClass('focus');
 				}
 			});
