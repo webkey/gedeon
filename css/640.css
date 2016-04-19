@@ -7,7 +7,14 @@ body{
 p {
 	padding: 0 0 24px;
 }
+h1 {
+	font-size: 36px;
+	line-height: 44px;
+	padding: 0 0 16px;
+	letter-spacing: normal;
+}
 h2 { line-height: 43px; }
+.content.user-content { padding: 30px 0 10px; }
 
 /*HEADER*/
 /*sub menu*/
@@ -88,12 +95,15 @@ h2 { line-height: 43px; }
 /*HEADER END*/
 
 /*MAIN CONTENT*/
+.heading-charter{ padding: 0 0 20px; }
 .articles {
 	max-width: 306px;
 	padding-bottom: 26px;
 }
 .btn-all__img { max-width: 35%; }
 .btn-all__inner { max-width: 66%; }
+
+.heading-charter__img{ margin-bottom: 0; }
 
 /*enter*/
 .enter-wrap {

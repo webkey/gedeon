@@ -456,16 +456,17 @@ function articlesLayout(){
 		return;
 	}
 
-	$(window).load(function () {
-		var $articlesPosition = $articles.masonry({
+	$articles.css({
+		'width': $('.articles__item').outerWidth() * $('.articles__item').length,
+		'max-width': '100%'
+	});
+
+	imagesLoaded($articles, function () {
+		var $articlesLayout = $articles.masonry({
 			itemSelector: '.articles__item',
 			percentPosition: true
 		});
-
-		$articlesPosition.on( 'layoutComplete', function() {
-			//$(document.body).trigger("sticky_kit:recalc");
-		});
-	})
+	});
 }
 /*articles layout end*/
 

@@ -1668,9 +1668,16 @@ html.desktop .nav-list a:hover:before{
 
 .heading-charter{
 	text-align: center;
-	padding: 0 0 20px;
+	padding: 0 0 40px;
 }
-.heading-charter__img{ margin: 0 auto 5px; }
+.heading-charter h1{
+	padding: 0;
+}
+.heading-charter__img{
+	margin: 0 auto 5px;
+	height: 43px;
+}
+.heading-charter__img img{ max-height: 100%; }
 
 .heading{
 	position: relative;
@@ -2294,10 +2301,7 @@ html.desktop .nav-list a:hover:before{
 	-webkit-transition-duration: 0.6s;
 	transition-duration: 0.6s;
 }
-.article__img{
-	position: relative;
-	margin-bottom: 9px;
-}
+.article__img{ position: relative; }
 .has-pdf .article__img,
 .has-video .article__img { min-height: 50px; }
 .article__label{
@@ -2336,7 +2340,7 @@ html.desktop .nav-list a:hover:before{
 	margin: -7px 0 0 -3px;
 }
 
-.article__content{ padding: 30px 30px 30px; }
+.article__content{ padding: 39px 30px 30px; }
 .article__date{
 	display: block;
 	font: 12px/14px 'lato-black', Arial, Helvetica, sans-serif;
@@ -2476,9 +2480,13 @@ html.desktop .nav-list a:hover:before{
 	margin: 0 auto;
 	padding: 0 0 32px;
 	max-width: 1560px;
+	text-align: center;
 }
 .articles__list{
+	display: inline-block;
+	vertical-align: top;
 	margin: 0;
+	text-align: left;
 
 	font-size: 0;
 	letter-spacing: -4px;
