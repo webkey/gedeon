@@ -61,6 +61,12 @@
 /*articles end*/
 
 /*sect*/
+.sect .align-layout-sm,
+.sect .align-layout{
+	padding-right: 25px;
+	padding-left: 95px;
+}
+
 .sect-about__info h2 {
 	padding: 0 0 30px;
 }
@@ -95,6 +101,63 @@
 
 .section-profit__box{ text-align: center; }
 .section-profit__col{ width: 49.98%; }
+
+.years-list li,
+.user-content .years-list li,
+.user-content .years-list li:first-child{ padding: 0 2px 10px; }
+.sect-history{ padding: 38px 0; }
+.history-slider__item dl{ padding-left: 0; }
+.sect-history__holder { margin: 0; }
+.history-slider{
+	padding: 0 0 70px;
+}
+.history-slider .slick-arrow{
+	top: 100%;
+	width: 40px;
+	height: 40px;
+	margin: -55px 0 0;
+}
+.history-slider .slick-arrow:hover{ background: none; }
+.history-slider .slick-arrow:before{
+	width: 40px;
+	height: 40px;
+}
+.history-slider .slick-prev{
+	left: 50%;
+	margin-left: -60px;
+}
+.history-slider .slick-next{
+	right: 50%;
+	margin-right: -60px;
+}
+
+.structure__head h3{ text-align: center; }
+.structure__col:first-child .structure__foot {
+	margin: 0 0 0 -9989px;
+	padding-right: 6%;
+	padding-left: 9999px;
+}
+.structure__foot {
+	margin: 0 -9999px 0 0;
+	padding: 27px 9999px 13px 6%;
+}
+.tabs-wrap .tab-controls, .user-content .tab-controls{ margin: 0 -2px; }
+.tab-controls li,
+.user-content .tab-controls li,
+.user-content .tab-controls li:first-child{
+	padding: 0 2px 10px;
+	letter-spacing: normal;
+}
+.tab-controls a{ padding:6px 12px 4px; }
+
+.sect-office__text {
+	-webkit-column-count: 2;
+	-moz-column-count: 2;
+	column-count: 2;
+	-webkit-column-gap: 40px;
+	-moz-column-gap: 40px;
+	column-gap: 40px;
+}
 /*sect end*/
 /*MAIN CONTENT end*/
 

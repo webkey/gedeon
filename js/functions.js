@@ -269,10 +269,6 @@ function slidersInit(){
 			dots: false,
 			arrows: true,
 			adaptiveHeight: true
-			//customPaging : function(slider, i) {
-			//	var paging = $(slider.$slides[i]).data('paging');
-			//	return '<a><span>'+paging+'</span></a>';
-			//}
 		}).on('beforeChange', function(event, slick, currentSlide, nextSlide){
 			var $yearsListLi = $(this).closest('.sect-history').find('.years-list').find('li');
 
@@ -280,6 +276,14 @@ function slidersInit(){
 			$yearsListLi
 				.eq(nextSlide)
 				.addClass('active');
+
+			if (!$(this).is(':animated')) {
+				$('html,body')
+						.stop()
+						.animate({
+							scrollTop: $(this).closest('.sect-history__holder').offset().top - ($('.main-nav').outerHeight() + 20)
+						}, 300);
+			}
 		});
 
 		function yearsSliderEvent(){
@@ -374,35 +378,44 @@ function stickyLayout(){
 	var $aside = $(".aside");
 	if ($aside.length) {
 
-		var resizeTimer;
+		var resizeTimerAside;
 
 		$(window).on('load resize', function () {
-			clearTimeout(resizeTimer);
-			resizeTimer = setTimeout(function () {
+			if($(window).width() < 960){
+				$aside.trigger("sticky_kit:detach").attr('style','');
+				return;
+			}
+
+			clearTimeout(resizeTimerAside);
+			resizeTimerAside = setTimeout(function () {
 				$aside.stick_in_parent({ // sticky element do not have relative
 					parent: '.main-holder', // parent must have relative
 					bottoming: '.pre-footer'
 				});
 			}, 100);
 		});
-
-		$(window).on('load resize', function () {
-			if($(window).width() < 960){
-				$aside.trigger("sticky_kit:detach").attr('style','');
-			}
-		})
 	}
 
 	/*menu*/
 	var $menu = $(".menu");
 	if ($menu.length) {
-		setTimeout(function () {
-			$menu.stick_in_parent({
-				parent: '.main',
-				bottoming: '.footer',
-				offset_top: 140
-			});
-		}, 100);
+		var resizeTimerMenu;
+
+		$(window).on('load resize', function () {
+			if($(window).width() < 640){
+				$aside.trigger("sticky_kit:detach").attr('style','');
+				return;
+			}
+
+			clearTimeout(resizeTimerMenu);
+			resizeTimerMenu = setTimeout(function () {
+				$menu.stick_in_parent({
+					parent: '.main',
+					bottoming: '.footer',
+					offset_top: 85
+				});
+			}, 100);
+		});
 	}
 }
 /*sticky layout end*/
@@ -580,7 +593,7 @@ function targetsSwitcherInit(){
 
 		function scrollToTop() {
 			if (!$(this).is(':animated')) {
-				$('html,body').stop().animate({scrollTop: $currentItem.offset().top - 95}, _duration);
+				$('html,body').stop().animate({scrollTop: $currentItem.offset().top - $('.main-nav').outerHeight() - 20}, _duration);
 			}
 		}
 

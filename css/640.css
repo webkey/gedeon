@@ -1,5 +1,14 @@
 @media only screen and (max-width: 639px){}
 
+body{
+	font-size: 14px;
+	line-height: 24px;
+}
+p {
+	padding: 0 0 24px;
+}
+h2 { line-height: 43px; }
+
 /*HEADER*/
 /*sub menu*/
 .header__top{
@@ -153,7 +162,66 @@
 	letter-spacing: 0.05em;
 }
 /*sing up end*/
+
+/*sect*/
+.sect .align-layout-sm,
+.sect .align-layout {
+	padding-right: 20px;
+	padding-left: 20px;
+	max-width: none;
+}
+
+.sect-about { padding: 25px 0 0; }
+.sect-about__info h2 { padding: 0 0 20px; }
+
+.sect-about__vita { padding: 30px 0; }
+.sect-about__vita-text {
+	-webkit-column-count: 1;
+	-moz-column-count: 1;
+	column-count: 1;
+	-webkit-column-gap: 0;
+	-moz-column-gap: 0;
+	column-gap: 0;
+	padding: 0 0 10px;
+}
+.sect-about__vita-text p{ padding: 0 0 24px; }
+
+.sect-data{ padding: 30px 0; }
+.sect-date__preview, .sect-date__conclusion{ padding: 0 0 24px; }
+.sect-date__amount{
+	display: table;
+	width: 100%;
+	padding: 0;
+	margin: 0 0 40px;
+}
+.sect-date__amount > div {
+	width: auto;
+	padding: 0 0 24px;
+	display: table-row-group;
+}
+.sect-date__amount > div > strong,
+.sect-date__amount > div > span{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: left;
+	font-size: 16px;
+	line-height: 18px;
+	padding: 8px 0 8px 10px;
+}
+.sect-date__amount > div > strong{
+	font-size: 36px;
+	line-height: 40px;
+	text-align: right;
+	padding-left: 0;
+	padding-right: 10px;
+}
+.sect-data h2{ padding: 0 0 24px; }
+/*sect end*/
 /*MAIN CONTENT end*/
+
+/*MENU*/
+.menu{ display: none; }
+/*MENU end*/
 
 /*ASIDE*/
 .aside .nav-list{ display: block; }

@@ -2875,7 +2875,10 @@ html.desktop .nav-list a:hover:before{
 
 /*section about*/
 .sect-about{ padding: 38px 0 0; }
-.sect-about__info{ background: #e5e5e5; }
+.sect-about__info{
+	background: #e5e5e5;
+	overflow: hidden;
+}
 .sect-about__info-holder{ position: relative; }
 .sect-about__info h2{
 	text-align: center;
@@ -2908,8 +2911,7 @@ html.desktop .nav-list a:hover:before{
 	column-gap: 30px;
 	padding: 0 0 43px;
 }
-.sect-about__vita-text p{ padding: 30px 0 0; }
-.sect-about__vita-text p:first-child{ padding-top: 0; }
+.sect-about__vita-text p{ padding: 0; }
 .more{ text-align: center; }
 /*section about end*/
 
@@ -2968,9 +2970,7 @@ html.desktop .nav-list a:hover:before{
 .sect-date__amount > div:first-child:before{ content: none; }
 .sect-date__amount > div > strong{
 	display: block;
-	font-size: 60px;
-	line-height: 68px;
-	font-weight: 700;
+	font: 700 60px/68px 'Roboto Slab', 'Times New Roman', Times, serif;
 	color: #fff;
 	padding: 0 0 14px;
 }
@@ -2996,7 +2996,7 @@ html.desktop .nav-list a:hover:before{
 	height: 0;
 	width: 60px;
 	margin-left: -30px;
-	border-top: 2px solid #006edc;
+	border-top: 2px solid #00bfff;
 }
 .sect-date__presence-box{
 	display: inline-block;
@@ -3025,7 +3025,7 @@ html.desktop .nav-list a:hover:before{
 .sect-profit{
 	background: #e5e5e5;
 	position: relative;
-	padding: 48px 0 23px;
+	padding: 48px 0 33px;
 }
 .sect-profit h2{
 	text-align: center;
@@ -3042,7 +3042,7 @@ html.desktop .nav-list a:hover:before{
 	box-sizing: border-box;
 	width: 33.28%;
 	text-align: center;
-	padding: 0 4.8% 30px;
+	padding: 0 4.8% 20px;
 
 	font-size: 14px;
 	letter-spacing: 0.05em;
@@ -3082,6 +3082,7 @@ html.desktop .nav-list a:hover:before{
 	-webkit-background-size: 100%;
 	background-size: 100%;
 }
+.sect-history__holder{ margin: 0 60px; }
 .sect-history h2{
 	text-align: center;
 	color: #fff;
@@ -3147,13 +3148,14 @@ html.desktop .nav-list a:hover:before{
 	max-width: 780px;
 	visibility: hidden;
 	margin: 0 auto;
-	background: #fff;
 	border-radius: 4px;
 }
 .no-js .history-slider{ visibility: visible; }
 .history-slider__item{
 	padding: 30px 30px 40px 30px;
 	box-sizing: border-box;
+	background: #fff;
+	border-radius: 4px;
 }
 .history-slider__item dl{
 	margin: 0;
@@ -3205,8 +3207,10 @@ html.desktop .nav-list a:hover:before{
 	-webkit-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
-	background: #fff;
+	background: none;
+	border: 2px solid #fff;
 	border-radius: 50%;
+	box-sizing: border-box;
 }
 .history-slider .slick-prev{ left: -70px; }
 .history-slider .slick-next{ right: -70px; }
@@ -3228,6 +3232,7 @@ html.desktop .nav-list a:hover:before{
 	background-position: 0 -38px;
 	margin: -9px 0 0 -3px;
 }
+.history-slider .slick-arrow:hover:before{ background: #fff; }
 .history-slider .slick-prev:hover:after{ background-position: 0 -76px; }
 .history-slider .slick-next:hover:after{ background-position: 0 -114px; }
 /*history slider end*/
@@ -3564,11 +3569,11 @@ html.desktop .nav-list a:hover:before{
 	top: 275px;
 	left: 0;
 	z-index: 4;
-	padding-bottom: 40px;
+	padding-bottom: 5px;
 }
 .header-fixed .menu{
 	position: fixed;
-	top: 140px;
+	top: 85px;
 }
 .menu-list,
 .user-content .menu-list{
@@ -4286,11 +4291,11 @@ textarea:focus{
 	height: 18px;
 }
 .tray .slick-prev:after{
-	background-position: 0 0;
+	background-position: 0 -152px;
 	margin: -9px 0 0 -7px;
 }
 .tray .slick-next:after{
-	background-position: 0 -38px;
+	background-position: 0 -190px;
 	margin: -9px 0 0 -3px;
 }
 .tray .slick-prev:hover:after{ background-position: 0 -76px; }
