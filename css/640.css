@@ -178,7 +178,21 @@ hr {
 	font-size: 18px;
 	line-height: 24px;
 }
+.space-left .test-box__caption{
+	padding-left: 20px;
+	padding-right: 20px;
+	line-height: 24px;
+}
 /*test box end*/
+
+/*task*/
+.task__item h4 { padding: 0 0 20px 28px; }
+.task__check-list li,
+.user-content .task__check-list li,
+.user-content .task__check-list li:first-child {
+	padding: 0 0 15px 28px;
+}
+/*task end*/
 
 /*others*/
 .other-holder {

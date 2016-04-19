@@ -91,6 +91,14 @@
 	font-size: 18px;
 	line-height: 24px;
 }
+
+.space-left .test-box__caption {
+	position: relative;
+	right: auto;
+	top: auto;
+	width: auto;
+	padding: 0 32px 14px 0;
+}
 /*test box end*/
 
 /*others*/
@@ -129,8 +137,6 @@
 	letter-spacing: 0.05em;
 }
 .caption__inner img{ display: none; }
-
-.tests{ width: 612px; }
 /*articles end*/
 
 /*sect*/

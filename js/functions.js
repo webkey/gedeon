@@ -289,16 +289,16 @@ function slidersInit(){
 
 /*equalHeight*/
 function equalHeightInit(){
-	var otherList = $('.others-list');
-	if (otherList.length) {
+	var $otherList = $('.others-list');
+	if ($otherList.length) {
 		imagesLoaded(document.querySelector('.others-list'), function (instance) {
 			//console.log(instance);
-			otherList.each(function () {
+			$otherList.each(function () {
 				var amount = $('.others-item', this).length;
 				$('.article__img', this).equalHeight({
 					amount: amount,
 					//useParent: true,
-					//parent: otherList,
+					//parent: $otherList,
 					resize: true
 				});
 
@@ -316,6 +316,19 @@ function equalHeightInit(){
 					amount: amount,
 					resize: true
 				});
+			});
+		});
+	}
+
+	/*tests item*/
+	var $testsList = $('.tests__list');
+	if ($testsList.length) {
+		imagesLoaded($testsList, function () {
+			$testsList.find('.test__title').equalHeight({
+				//amount: 3,
+				useParent: true,
+				parent: $testsList,
+				resize: true
 			});
 		});
 	}

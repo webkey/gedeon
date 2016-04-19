@@ -1818,7 +1818,16 @@ html.desktop .nav-list a:hover:before{
 	font-family: 'lato-black', Arial, Helvetica, sans-serif;
 	color: #ff0101;
 }
-.test-box__test{ padding: 9px 0; }
+.test-box__test{
+	padding: 9px 0;
+	display: none;
+}
+.test-box.has-test .test-box__test,
+.test-box.test-status .test-box__test,
+.test-box.test-done .test-box__test,
+.test-box.test-again .test-box__test{
+	display: block;
+}
 .test-box__test-status{
 	display: inline-block;
 	vertical-align: top;
@@ -2542,7 +2551,8 @@ html.desktop .nav-list a:hover:before{
 /*tests*/
 .tests{ margin: 0 auto; }
 .tests__list{
-	margin: 0 16px;
+	margin: 0 13px;
+	text-align: center;
 
 	font-size: 0;
 	letter-spacing: -4px;
@@ -2550,8 +2560,9 @@ html.desktop .nav-list a:hover:before{
 .tests__item{
 	display: inline-block;
 	vertical-align: top;
-	padding: 0 16px 32px;
+	padding: 0 13px 26px;
 	max-width: 280px;
+	text-align: left;
 
 	font-size: 14px;
 	letter-spacing: normal;
