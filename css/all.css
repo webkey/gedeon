@@ -2898,7 +2898,6 @@ html.desktop .nav-list a:hover:before{
 .sect-about{ padding: 38px 0 0; }
 .sect-about__info{
 	background: #e5e5e5;
-	overflow: hidden;
 }
 .sect-about__info-holder{ position: relative; }
 .sect-about__info h2{

@@ -291,8 +291,7 @@ function slidersInit(){
 function equalHeightInit(){
 	var $otherList = $('.others-list');
 	if ($otherList.length) {
-		imagesLoaded(document.querySelector('.others-list'), function (instance) {
-			//console.log(instance);
+		imagesLoaded(document.querySelector('.others-list'), function () {
 			$otherList.each(function () {
 				var amount = $('.others-item', this).length;
 				$('.article__img', this).equalHeight({
@@ -325,7 +324,6 @@ function equalHeightInit(){
 	if ($testsList.length) {
 		imagesLoaded($testsList, function () {
 			$testsList.find('.test__title').equalHeight({
-				//amount: 3,
 				useParent: true,
 				parent: $testsList,
 				resize: true
@@ -336,10 +334,8 @@ function equalHeightInit(){
 	/*profit*/
 	var $profit = $('.section-profit__box');
 	if ($profit.length) {
-		imagesLoaded($profit, function (instance) {
-			//console.log(instance);
+		imagesLoaded($profit, function () {
 			$profit.find('.section-profit__img').equalHeight({
-				//amount: 3,
 				useParent: true,
 				parent: $profit,
 				resize: true
@@ -352,17 +348,14 @@ function equalHeightStructure(){
 	/*profit*/
 	var $structure = $('.structure');
 	if ($structure.length) {
-		imagesLoaded($structure, function (instance) {
-			//console.log(instance);
+		imagesLoaded($structure, function () {
 			$structure.find('.structure__head').equalHeight({
-				//amount: 2,
 				useParent: true,
 				parent: $structure,
 				resize: true
 			});
 
 			$structure.find('.structure__foot').equalHeight({
-				//amount: 2,
 				useParent: true,
 				parent: $structure,
 				resize: true
@@ -388,6 +381,7 @@ function stickyLayout(){
 
 			clearTimeout(resizeTimerAside);
 			resizeTimerAside = setTimeout(function () {
+				console.log('sticky');
 				$aside.stick_in_parent({ // sticky element do not have relative
 					parent: '.main-holder', // parent must have relative
 					bottoming: '.pre-footer'
@@ -429,17 +423,7 @@ function headerFixed(){
 		return;
 	}
 
-	//var resizeTimer;
-
 	$(window).on('load scroll resizeByWidth', function () {
-		//clearTimeout(resizeTimer);
-		//resizeTimer = setTimeout(function () {
-		//	$headerPanelWrap.css({
-		//		height: $headerPanel.outerHeight()
-		//	});
-		//}, 500);
-
-
 		var scrollTop = $(window).scrollTop();
 
 		$page.toggleClass('header-fixed', scrollTop >= $headerPanelWrap.offset().top);
@@ -665,19 +649,14 @@ function tabs() {
 			//animation: 'fade', // slide
 			duration: 300, // default 500
 			animationQueue: true,
-			//scrollToAccordion: true,
 			load: function(){
 				setTimeout(function () {
 					equalHeightStructure();
 				}, 100);
 			},
-			//scrollToAccordionOffset: true
 			activate: function() {
 				equalHeightStructure();
 			}
-			//activateState: function(e, state) {
-			//	console.log(state);
-			//}
 		});
 	}
 }

@@ -146,6 +146,9 @@
 	padding-left: 95px;
 }
 
+.sect-about__info{
+	overflow: hidden;
+}
 .sect-about__info h2 {
 	padding: 0 0 30px;
 }

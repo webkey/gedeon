@@ -75,10 +75,3 @@
 .depict-menu-office:before{ background-position: 0 -960px; width: 60px; height: 60px; }
 .depict-menu-office:after{ background-position: 0 -1040px; width: 60px; height: 60px; }
 /*menu icons end*/
-
-@media ( -webkit-min-device-pixel-ratio : 1.5 ),
-( min-resolution : 144dpi ){
-	.iii {
-		background-size:38px 38px;
-	}
-}
