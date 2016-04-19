@@ -215,7 +215,92 @@ h2 { line-height: 43px; }
 	padding-left: 0;
 	padding-right: 10px;
 }
-.sect-data h2{ padding: 0 0 24px; }
+.sect-data h2{ padding: 0 0 50px; }
+.sect-date__presence{
+	margin: 0;
+	padding: 0 0 12px;
+}
+.sect-date__presence-box{
+	width: auto;
+	font-size: 16px;
+	line-height: 24px;
+	padding: 0 0 50px;
+}
+.sect-date__presence-amount{ margin: 0 auto 15px; }
+.date__conclusion { padding: 0; }
+
+.sect-profit{
+	padding: 30px 0;
+	background: #fff;
+}
+.sect-profit h2{
+	font-size: 34px;
+	letter-spacing: normal;
+	padding: 0 0 30px;
+}
+.section-profit__box{ margin: 0; }
+.section-profit__col {
+	width: auto;
+	padding: 0 0 30px;
+}
+
+.sect-history { padding: 30px 0 0; }
+.sect-history h2 { padding: 0 0 24px; }
+.years-list, .user-content .years-list{ padding: 0 0 10px; }
+.history-slider__item { padding: 30px 20px; }
+.history-slider__item dt {
+	float: none;
+	display: block;
+	padding: 0 0 5px;
+}
+.history-slider__item dd { padding: 0 0 15px 20px; }
+
+.targets__item{ width: auto; }
+.targets__item h3{ padding: 20px 40px 20px 20px; }
+.targets__angle{ right: 18px; }
+.targets__panel{ padding: 0 20px 22px; }
+
+.sect-structure{ padding-top: 30px; }
+.sect-structure h2 {
+	text-align: center;
+	padding: 0 0 4px;
+}
+.structure { margin: 0; }
+.structure__col {
+	float: none;
+	width: auto;
+}
+.structure__head{ padding: 20px 0 10px; }
+.structure__foot,
+.structure__col:first-child .structure__foot{
+	padding: 20px 9999px 10px;
+	margin: 0 -9999px;
+}
+.structure__foot .tabs-wrap { padding-top: 0; }
+.structure__img { margin-right: 0; }
+
+.sect-office{ padding: 30px 0; }
+.sect-office h2{
+	font-size: 24px;
+	line-height: 29px;
+	padding: 0 0 24px;
+}
+.sect-office h3{
+	font-size: 18px;
+	line-height: 24px;
+	letter-spacing: normal;
+	padding: 0 0 24px;
+}
+.sect-office__text{
+	-webkit-column-count: 1;
+	-moz-column-count: 1;
+	column-count: 1;
+	-webkit-column-gap: 0;
+	-moz-column-gap: 0;
+	column-gap: 0;
+	padding: 0 0 6px;
+}
+.sect-office__text p{ padding: 0 0 24px; }
 /*sect end*/
 /*MAIN CONTENT end*/
 
@@ -238,9 +323,11 @@ h2 { line-height: 43px; }
 /*ASIDE end*/
 
 /*PRE FOOTER*/
-.pre-footer{ padding-bottom: 20px; }
+.pre-footer{ padding: 35px 0 20px; }
 .pre-footer-logo{ display: none; }
-.tray{ padding: 0 12px 20px; }
+.tray{ padding: 0 20px 20px; }
+.tray__col{ padding: 0; }
+.tray__align{ max-width: 210px; }
 .tray .slick-arrow{
 	width: 40px;
 	height: 40px;
@@ -250,10 +337,7 @@ h2 { line-height: 43px; }
 }
 .tray .slick-prev { left: 20px; }
 .tray .slick-next { right: 20px; }
-.tray .slick-dots{
-	padding-left: 48px;
-	padding-right: 48px;
-}
+.tray .slick-dots{ padding: 25px 48px 0; }
 /*PRE FOOTER END*/
 
 /*FOOTER*/

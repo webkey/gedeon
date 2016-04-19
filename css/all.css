@@ -2883,11 +2883,14 @@ html.desktop .nav-list a:hover:before{
 .sect-about__info h2{
 	text-align: center;
 	padding: 0 0 50px;
+	position: relative;
+	z-index: 1;
 }
 .sect-about__info-text{
 	padding-right: 360px;
 	padding-bottom: 15px;
-	min-height: 350px;
+	min-height: 390px;
+	position: relative;
 }
 .sect-about__vita{ background: #fff; }
 .sect-about__img{
@@ -3166,6 +3169,12 @@ html.desktop .nav-list a:hover:before{
 	float: left;
 	padding: 0 5px 0 0;
 	margin: 0;
+	position: relative;
+}
+.history-slider__item dt:after{
+	content: '—';
+	display: inline-block;
+	padding-left: 4px;
 }
 .history-slider__item dt b{ font-family: 'lato-black', Arial, Helvetica, sans-serif; }
 .history-slider__item dd{
@@ -3557,8 +3566,7 @@ html.desktop .nav-list a:hover:before{
 	column-gap: 30px;
 	padding: 0 0 43px;
 }
-.sect-office__text p{ padding: 30px 0 0; }
-.sect-office__text p:first-child{ padding-top: 0; }
+.sect-office__text p{ padding: 0; }
 
 /*section office end*/
 /*MAIN end*/
