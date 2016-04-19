@@ -8,13 +8,30 @@ p {
 	padding: 0 0 24px;
 }
 h1 {
-	font-size: 36px;
-	line-height: 44px;
+	font-size: 32px;
+	line-height: 38px;
 	padding: 0 0 16px;
 	letter-spacing: normal;
 }
 h2 { line-height: 43px; }
+h3{
+	font-size: 20px;
+	line-height: 28px;
+}
+h4 {
+	font-size: 18px;
+	line-height: 24px;
+	letter-spacing: 0.05em;
+	padding: 0 0 16px;
+}
+hr {
+	margin: 12px 0 32px;
+}
 .content.user-content { padding: 30px 0 10px; }
+.form-col{
+	width: auto;
+	display: block;
+}
 
 /*HEADER*/
 /*sub menu*/
@@ -95,6 +112,87 @@ h2 { line-height: 43px; }
 /*HEADER END*/
 
 /*MAIN CONTENT*/
+.align-layout,
+.space-left .align-layout {
+	padding: 0 20px;
+}
+
+.breadcrumbs-list li,
+.user-content .breadcrumbs-list li {
+	padding: 0 12px 6px 18px;
+}
+.breadcrumbs-list li:first-child,
+.user-content .breadcrumbs-list li:first-child{
+	padding-left: 0;
+	background: none;
+}
+
+.heading {
+	padding-left: 0;
+}
+.heading .datetime {
+	position: relative;
+	left: auto;
+	top: auto;
+	margin: 0;
+}
+.space-left .datetime,
+.heading .datetime,
+.datetime{
+	margin: 0 auto 30px;
+}
+.datetime:before {
+	left: 50%;
+	top: 100%;
+	margin: 0 0 0 -10px;
+	border: solid rgba(255, 255, 255, 0);
+	border-width: 9px 10px;
+	border-left-color: transparent;
+	border-top-color: #fff;
+}
+.imgc figcaption{
+	line-height: 24px;
+}
+.imgc.img-large,
+.space-left .imgc.img-large, .space-left .video-box { margin: 0 -20px 30px; }
+.video-box{ padding: 0; }
+.user-content blockquote { padding: 30px 20px; }
+
+/*test box*/
+.test-box {
+	margin: 0 -20px;
+	padding: 0 0 30px;
+}
+.test-box__layout {
+	padding: 28px 20px;
+}
+.test-box__layout:before{ content: none; }
+.test-box__img {
+	position: relative;
+	left: auto;
+	top: auto;
+	margin: 0 auto 20px;
+}
+.test-box__label,
+.test-box h3{
+	font-size: 18px;
+	line-height: 24px;
+}
+/*test box end*/
+
+/*others*/
+.other-holder {
+	padding: 0;
+}
+.section-others h2,
+.section-others.space-left h2{
+	padding: 0 20px 24px;
+	font-size: 30px;
+	line-height: 38px;
+}
+/*others end*/
+
+
 .heading-charter{ padding: 0 0 20px; }
 .articles {
 	max-width: 306px;

@@ -28,6 +28,79 @@
 /*HEADER END*/
 
 /*MAIN CONTENT*/
+.use-color{
+	float: none;
+	margin: 0 0 20px;
+}
+.align-layout,
+.space-left .align-layout {
+	padding: 0 32px;
+}
+.heading {
+	padding-left: 132px;
+}
+.space-left .datetime{
+	position: relative;
+	left: auto;
+	top: auto;
+	margin: 0 0 24px;
+}
+.heading .datetime{
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin: 0;
+}
+.imgc figcaption{
+	padding: 20px 0 0;
+}
+.space-left .imgc.img-large {
+	margin-left: 0;
+}
+.space-left .imgc.img-large figcaption{
+	position: relative;
+	left: auto;
+	top: auto;
+	width: auto;
+	padding: 20px 0 0;
+	text-align: center;
+}
+.space-left hr { margin-left: 0; }
+.space-left .blockquote{
+	margin: 0;
+}
+.user-content blockquote{
+	padding: 43px 98px 30px;
+}
+.space-left .video-box {
+	margin-left: 0;
+}
+
+/*test box*/
+.test-box{
+	margin-right: -32px;
+	padding: 0 0 40px;
+}
+.test-box__label {
+	float: none;
+	margin-right: 0;
+	padding: 0 0 4px;
+}
+.test-box__label,
+.test-box h3{
+	font-size: 18px;
+	line-height: 24px;
+}
+/*test box end*/
+
+/*others*/
+.other-holder { padding: 0 32px; }
+.section-others h2,
+.section-others.space-left h2{
+	padding: 0 32px 24px;
+}
+/*others end*/
+
 /*articles*/
 .articles{
 	width: 612px;

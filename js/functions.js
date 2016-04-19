@@ -164,26 +164,13 @@ function slidersInit(){
 				$(this).css({'visibility':'visible'});
 			}
 		}).slick({
-			slidesToShow: 4,
-			slidesToScroll: 4,
-			infinite: false,
+			slidesToShow: 1,
+			centerMode: true,
+			variableWidth: true,
+			infinite: true,
 			speed: 200,
 			dots: true,
-			arrows: false,
-			responsive: [{
-				breakpoint: 1280,
-				settings: {
-					slidesToShow: 3,
-					slidesToScroll: 3
-				}
-			},{
-				breakpoint: 880,
-				settings: {
-					slidesToShow: 2,
-					slidesToScroll: 2,
-					dots: false
-				}
-			}]
+			arrows: false
 		});
 	}
 
