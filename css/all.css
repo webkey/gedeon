@@ -1,17 +1,75 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&subset=latin,latin-ext,cyrillic-ext,cyrillic);
-@import url(fonts.css);
 @import url(normalize.css);
-@import url(buttons.css);
-@import url(sp.css);
 @import url(widgets.css);
 
 /*fonts*/
-/*@import url(fonts.css);*/
+/* lato regular */
+@font-face {
+	font-family: 'lato-regular';
+	src: url('../fonts/lato/regular/lato-regular.eot');
+	src: url('../fonts/lato/regular/lato-regular.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/lato/regular/lato-regular.woff') format('woff'),
+	url('../fonts/lato/regular/lato-regular.ttf') format('truetype'),
+	url('../fonts/lato/regular/lato-regular.svg#lato-regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+/* lato black */
+@font-face {
+	font-family: 'lato-black';
+	src: url('../fonts/lato/black/lato-black.eot');
+	src: url('../fonts/lato/black/lato-black.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/lato/black/lato-black.woff') format('woff'),
+	url('../fonts/lato/black/lato-black.ttf') format('truetype'),
+	url('../fonts/lato/black/lato-black.svg#lato-black') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+/* lato bold */
+@font-face {
+	font-family: 'lato-bold';
+	src: url('../fonts/lato/bold/lato-bold.eot');
+	src: url('../fonts/lato/bold/lato-bold.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/lato/bold/lato-bold.woff') format('woff'),
+	url('../fonts/lato/bold/lato-bold.ttf') format('truetype'),
+	url('../fonts/lato/bold/lato-bold.svg#lato-bold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+/* lato bold italic */
+@font-face {
+	font-family: 'lato-bold-italic';
+	src: url('../fonts/lato/bold-italic/lato-bolditalic.eot');
+	src: url('../fonts/lato/bold-italic/lato-bolditalic.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/lato/bold-italic/lato-bolditalic.woff') format('woff'),
+	url('../fonts/lato/bold-italic/lato-bolditalic.ttf') format('truetype'),
+	url('../fonts/lato/bold-italic/lato-bolditalic.svg#lato-bolditalic') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+/* lato heavy */
+@font-face {
+	font-family: 'lato-heavy';
+	src: url('../fonts/lato/heavy/lato-heavy.eot');
+	src: url('../fonts/lato/heavy/lato-heavy.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/lato/heavy/lato-heavy.woff') format('woff'),
+	url('../fonts/lato/heavy/lato-heavy.ttf') format('truetype'),
+	url('../fonts/lato/heavy/lato-heavy.svg#lato-heavy') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+/* lato italic */
+@font-face {
+	font-family: 'lato-italic';
+	src: url('../fonts/lato/italic/lato-italic.eot');
+	src: url('../fonts/lato/italic/lato-italic.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/lato/italic/lato-italic.woff') format('woff'),
+	url('../fonts/lato/italic/lato-italic.ttf') format('truetype'),
+	url('../fonts/lato/italic/lato-italic.svg#latoitalic') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 /*fonts end*/
-
-/*normalize*/
-/*@import url(normalize.css);*/
-/*normalize end*/
 
 /*------ TYPOGRAPHIC STYLES ------*/
 body{
@@ -124,11 +182,122 @@ strong em{
 /*------ TYPOGRAPHIC STYLES end ------*/
 
 /*sp*/
-/*@import url(sp.css);*/
+/*icons*/
+[class|="depict"],
+[class*=" depict-"]{
+	background:url(../img/sprite-icons.png) 0 0 no-repeat;
+	display: inline-block;
+	vertical-align: top;
+}
+.depict-question{ background-position: 0 0; width: 23px; height: 31px; }
+.depict-editor{ background-position: 0 -51px; width: 30px; height: 30px; }
+.depict-colleague{ background-position: 0 -101px; width: 30px; height: 30px; }
+/*icons end*/
+
+/*social icons*/
+[class|="soc-depict"],
+[class*=" soc-depict-"] {
+	background:url(../img/sprite-social.png) 0 0 no-repeat;
+	display: inline-block;
+	vertical-align: top;
+}
+/*social icons end*/
+
+/*slider icons*/
+[class*="slider-arrow-"]{
+	background:url(../img/sprite-slider.png) 0 0 no-repeat;
+	display: inline-block;
+	vertical-align: top;
+}
+.slider-arrow-l-gray{ background-position: 0 0; width: 10px; height: 18px; }
+.slider-arrow-r-gray{ background-position: 0 -38px; width: 10px; height: 18px; }
+.slider-arrow-l-blue{ background-position: 0 -76px; width: 10px; height: 18px; }
+.slider-arrow-r-blue{ background-position: 0 -114px; width: 10px; height: 18px; }
+/*slider icons end*/
+
+/*menu icons*/
+[class*="depict-menu-"]{
+	display: inline-block;
+	vertical-align: top;
+	width: 60px;
+	height: 60px;
+	position: relative;
+	background: none;
+}
+[class*="depict-menu-"]:before,
+[class*="depict-menu-"]:after{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 60px;
+	width: 60px;
+	background:url(../img/sprite-menu.png) 0 0 no-repeat;
+}
+[class*="depict-menu-"]:before{
+	opacity: 1;
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+}
+[class*="depict-menu-"]:after{
+	opacity: 0;
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
+.depict-menu-about:before{ background-position: 0 0; width: 60px; height: 60px; }
+.depict-menu-about:after{ background-position: 0 -80px; width: 60px; height: 60px; }
+.depict-menu-data:before{ background-position: 0 -160px; width: 60px; height: 60px; }
+.depict-menu-data:after{ background-position: 0 -240px; width: 60px; height: 60px; }
+.depict-menu-benefits:before{ background-position: 0 -320px; width: 60px; height: 60px; }
+.depict-menu-benefits:after{ background-position: 0 -400px; width: 60px; height: 60px; }
+.depict-menu-history:before{ background-position: 0 -480px; width: 60px; height: 60px; }
+.depict-menu-history:after{ background-position: 0 -560px; width: 60px; height: 60px; }
+.depict-menu-target:before{ background-position: 0 -640px; width: 60px; height: 60px; }
+.depict-menu-target:after{ background-position: 0 -720px; width: 60px; height: 60px; }
+.depict-menu-structure:before{ background-position: 0 -800px; width: 60px; height: 60px; }
+.depict-menu-structure:after{ background-position: 0 -880px; width: 60px; height: 60px; }
+.depict-menu-office:before{ background-position: 0 -960px; width: 60px; height: 60px; }
+.depict-menu-office:after{ background-position: 0 -1040px; width: 60px; height: 60px; }
+/*menu icons end*/
 /*sp end*/
 
 /*btn*/
-/*@import url(buttons.css);*/
+[class|="btn"],
+[class*=" btn-"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+button{
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	text-align: center;
+	text-decoration:none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+[class|="btn"] input[type="submit"],
+[class*=" btn-"] input[type="submit"],
+[class|="btn"] input[type="button"],
+[class*=" btn-"] input[type="button"],
+[class|="btn"] input[type="reset"],
+[class*=" btn-"] input[type="reset"]{
+	background: url("../img/empty.png") repeat;
+	cursor: pointer;
+	display: block;
+	height: 100%;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99;
+	border:0;
+	opacity: 0;
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
 
 /*btn-default*/
 .btn-default{
@@ -4463,7 +4632,7 @@ textarea:focus{
 /*FOOTER end*/
 
 .browserupgrade {
-	margin: 0.2em 0;
+	margin: 0;
 	background: #ccc;
 	color: #000;
 	padding: 0.2em 0;

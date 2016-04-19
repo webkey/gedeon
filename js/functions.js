@@ -381,7 +381,6 @@ function stickyLayout(){
 
 			clearTimeout(resizeTimerAside);
 			resizeTimerAside = setTimeout(function () {
-				console.log('sticky');
 				$aside.stick_in_parent({ // sticky element do not have relative
 					parent: '.main-holder', // parent must have relative
 					bottoming: '.pre-footer'
@@ -778,8 +777,6 @@ function selectResize(){
 $('select').on('change', function() {
 	var $currentItem = $(this);
 	var other = $currentItem.find('option:selected').data('other');
-	console.log('$(this).val(): ', $(this).val());
-	console.log('other: ', other);
 	var addInputJs = $(this).closest('.form-line').find('.add-input-js');
 	addInputJs.hide();
 

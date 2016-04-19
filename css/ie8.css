@@ -1,1 +1,5 @@
-﻿
+﻿body{ min-width: 1280px; }
+.wrapper,
+.footer{
+	display: none;
+}
