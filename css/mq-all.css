@@ -19,11 +19,7 @@
 @media only screen and (max-width: 1279px){
 	/*HEADER*/
 	/*logo*/
-	.logo{
-		background: url(../img/logo-sm.png) 0 0 no-repeat;
-		width: 216px;
-		height: 50px;
-	}
+	.logo{ margin-right: 0; }
 	/*logo end*/
 
 	/*h-text*/
@@ -526,11 +522,13 @@
 
 	/*logo*/
 	.logo{
-		background: url(../img/logo-sm.png) 0 0 no-repeat;
-		width: 216px;
-		height: 50px;
+		background: url(../img/logo-lg.png) 0 0 no-repeat;
+		-webkit-background-size: contain;
+		background-size: contain;
+		width: 220px;
+		height: 46px;
 		left: 20px;
-		top: 84px;
+		top: 87px;
 	}
 	.enter-page .logo{
 		left: 50%;

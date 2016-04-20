@@ -1434,10 +1434,10 @@ div.cselect-center .ui-multiselect-checkboxes label{ text-align: left; }
 /*logo*/
 .logo{
 	float: left;
-	background: url(../img/logo.png) no-repeat;
+	background: url(../img/logo-lg.png) no-repeat;
 	-webkit-background-size: contain;
 	background-size: contain;
-	width: 271px;
+	width: 242px;
 	height: 50px;
 	text-indent: -9999px;
 	overflow: hidden;
@@ -1451,6 +1451,9 @@ div.cselect-center .ui-multiselect-checkboxes label{ text-align: left; }
 	transition-delay: 0.3s;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
+}
+.no-backgroundsize .logo{
+	background-image: url(../img/logo.png);
 }
 .header-fixed .logo{
 	opacity: 0;
