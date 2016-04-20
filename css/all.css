@@ -4596,6 +4596,9 @@ html.desktop .tray .slick-dots li:hover button {
 	box-shadow: 4px 0 25px rgba(0, 0, 0, 0.20);
 	z-index: 1;
 }
+.enter-page .footer .max-wrap:before{
+	content: none;
+}
 .footer-holder{
 	font-size: 0;
 	letter-spacing: -4px;
