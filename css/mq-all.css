@@ -215,8 +215,11 @@
 		width: 40px;
 		height: 40px;
 		margin: -55px 0 0;
+		border-radius: 50%;
 	}
-	.history-slider .slick-arrow:hover{ background: none; }
+	html.desktop .history-slider .slick-arrow:hover,
+	html.mobile .history-slider .slick-arrow:hover,
+	html.tablet .history-slider .slick-arrow:hover{ background: none; }
 	.history-slider .slick-arrow:before{
 		width: 40px;
 		height: 40px;

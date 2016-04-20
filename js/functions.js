@@ -655,6 +655,10 @@ function tabs() {
 			},
 			activate: function() {
 				equalHeightStructure();
+
+				if (!$(this).is(':animated')) {
+					$('html,body').stop().animate({scrollTop: $helpfulTabs.offset().top - ($('.main-nav').outerHeight() + 20)}, 300);
+				}
 			}
 		});
 	}

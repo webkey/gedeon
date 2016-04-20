@@ -1435,6 +1435,8 @@ div.cselect-center .ui-multiselect-checkboxes label{ text-align: left; }
 .logo{
 	float: left;
 	background: url(../img/logo.png) no-repeat;
+	-webkit-background-size: contain;
+	background-size: contain;
 	width: 271px;
 	height: 50px;
 	text-indent: -9999px;
@@ -1447,6 +1449,8 @@ div.cselect-center .ui-multiselect-checkboxes label{ text-align: left; }
 	transition-duration: 0.3s;
 	-webkit-transition-delay: 0.3s;
 	transition-delay: 0.3s;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
 }
 .header-fixed .logo{
 	opacity: 0;
@@ -3390,7 +3394,7 @@ html.desktop .nav-list a:hover:before{
 	-webkit-transition-duration: 0.3s;
 	transition-duration: 0.3s;
 }
-.history-slider .slick-arrow:hover{ background: rgba(255, 255, 255, 0.1); }
+html.desktop .history-slider .slick-arrow:hover{ background: rgba(255, 255, 255, 0.1); }
 .history-slider .slick-arrow:before{
 	content: "";
 	display: block;
@@ -3430,9 +3434,9 @@ html.desktop .nav-list a:hover:before{
 	background-position: 0 -38px;
 	margin: -9px 0 0 -3px;
 }
-.history-slider .slick-arrow:hover:before{ background: #fff; }
-.history-slider .slick-prev:hover:after{ background-position: 0 -76px; }
-.history-slider .slick-next:hover:after{ background-position: 0 -114px; }
+html.desktop .history-slider .slick-arrow:hover:before{ background: #fff; }
+html.desktop .history-slider .slick-prev:hover:after{ background-position: 0 -76px; }
+html.desktop .history-slider .slick-next:hover:after{ background-position: 0 -114px; }
 /*history slider end*/
 /*section history end*/
 
@@ -3693,11 +3697,14 @@ html.desktop .nav-list a:hover:before{
 .tab-controls a{
 	display: block;
 	padding: 6px 21px 4px;
-	border-radius: 15px;
+	border-radius: 30px;
 	background: none;
 	box-shadow: none;
 	text-decoration: none;
 	color: #fff;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 	-webkit-transition-property: background, box-shadow;
 	transition-property: background, box-shadow;
 	-webkit-transition-duration: 0.3s;
@@ -4474,7 +4481,7 @@ textarea:focus{
 	border-radius: 50%;
 	border: 2px solid #ccc;
 }
-.tray .slick-arrow:hover:before{ border-color: #006edc; }
+html.desktop .tray .slick-arrow:hover:before{ border-color: #006edc; }
 .tray .slick-prev{ left: 0; }
 .tray .slick-next{ right: 0; }
 .tray .slick-arrow:after{
@@ -4495,8 +4502,8 @@ textarea:focus{
 	background-position: 0 -190px;
 	margin: -9px 0 0 -3px;
 }
-.tray .slick-prev:hover:after{ background-position: 0 -76px; }
-.tray .slick-next:hover:after{ background-position: 0 -114px; }
+html.desktop .tray .slick-prev:hover:after{ background-position: 0 -76px; }
+html.desktop .tray .slick-next:hover:after{ background-position: 0 -114px; }
 
 .tray .slick-dots{
 	position: relative;
@@ -4547,7 +4554,7 @@ textarea:focus{
 	-webkit-transition-duration: 0.6s;
 	transition-duration: 0.6s;
 }
-.tray .slick-dots li:hover button {
+html.desktop .tray .slick-dots li:hover button {
 	background: #b3b3b3;
 	-webkit-transition-duration: 0.2s;
 	transition-duration: 0.2s;
@@ -4615,8 +4622,10 @@ textarea:focus{
 .site-developer_logo{
 	display: inline-block;
 	vertical-align: top;
-	background: url(../img/img-developer.png) no-repeat;
-	width: 89px;
+	background: url(../img/img-developer.svg) no-repeat top left;
+	-webkit-background-size: contain;
+	background-size: contain;
+	width: 107px;
 	height: 25px;
 	font-size: 12px;
 	line-height: 24px;
@@ -4627,6 +4636,9 @@ textarea:focus{
 	overflow: hidden;
 	-webkit-transition: opacity 0.2s;
 	transition: opacity 0.2s;
+}
+.no-svg .site-developer_logo{
+	background-image: url(../img/img-developer.png);
 }
 .site-developer a:hover .site-developer_logo{ box-shadow: 3px 3px 0 #005ebb; }
 /*FOOTER end*/
