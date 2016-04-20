@@ -4456,7 +4456,7 @@ textarea:focus{
 	transform: translate(0, 0);
 	background: none;
 	border-radius: 0;
-	z-index: 1;
+	z-index: 0;
 	-webkit-transition-property: background;
 	transition-property: background;
 	-webkit-transition-duration: 0.3s;
@@ -4515,7 +4515,7 @@ html.desktop .tray .slick-next:hover:after{ background-position: 0 -114px; }
 	left: auto;
 	right: auto;
 	padding: 10px 0 0;
-	z-index: 2;
+	z-index: 0;
 }
 .tray .slick-dots li,
 .user-content .tray .slick-dots li,
