@@ -1345,7 +1345,7 @@ div.cselect-center .ui-multiselect-checkboxes label{ text-align: left; }
 	height: 100%;
 	overflow: hidden;
 	position: relative;
-	z-index: 2;
+	z-index: 1;
 }
 .aside-show .wrapper{ z-index: 9; }
 .main{
@@ -4580,6 +4580,20 @@ html.desktop .tray .slick-dots li:hover button {
 .footer{
 	position: relative;
 	clear: both;
+	z-index: 1;
+}
+.footer .max-wrap{
+	position: relative;
+	overflow: hidden;
+}
+.footer .max-wrap:before{
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 320px;
+	bottom: 100%;
+	height: 10px;
+	box-shadow: 4px 0 25px rgba(0, 0, 0, 0.20);
 	z-index: 1;
 }
 .footer-holder{
