@@ -3046,7 +3046,7 @@ html.desktop .nav-list a:hover:before{
 	-webkit-transition-duration: 0.6s;
 	transition-duration: 0.6s;
 }
-.others-list .slick-dots li:hover button {
+html.desktop .others-list .slick-dots li:hover button {
 	background: #006edc;
 	-webkit-transition-duration: 0.2s;
 	transition-duration: 0.2s;
