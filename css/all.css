@@ -1345,6 +1345,7 @@ div.cselect-center .ui-multiselect-checkboxes label{ text-align: left; }
 	height: 100%;
 	overflow: hidden;
 	position: relative;
+	z-index: 2;
 }
 .aside-show .wrapper{ z-index: 9; }
 .main{
@@ -1627,7 +1628,9 @@ html.desktop .btn-aside.active{ /*hover*/ }
 	left: 30px;
 	top: 50%;
 	margin: -25px 0 0;
-	background: url(../img/logo-short.png) no-repeat;
+	background: url(../img/logo-short-lg.png) no-repeat;
+	-webkit-background-size: contain;
+	background-size: contain;
 	width: 50px;
 	height: 50px;
 	text-indent: -9999px;
@@ -1648,6 +1651,7 @@ html.desktop .btn-aside.active{ /*hover*/ }
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
+.no-backgroundsize .logo-short{ background-image: url(../img/logo-short.png); }
 .logo-short a,
 .logo-short > span{
 	display: block;
@@ -4576,6 +4580,7 @@ html.desktop .tray .slick-dots li:hover button {
 .footer{
 	position: relative;
 	clear: both;
+	z-index: 1;
 }
 .footer-holder{
 	font-size: 0;
