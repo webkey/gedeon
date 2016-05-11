@@ -165,9 +165,9 @@ function slidersInit(){
 			}
 		}).slick({
 			slidesToShow: 1,
-			centerMode: true,
+			centerMode: false,
 			variableWidth: true,
-			infinite: true,
+			infinite: false,
 			speed: 200,
 			dots: true,
 			arrows: false
@@ -224,6 +224,7 @@ function slidersInit(){
 				$(this).css({'visibility':'visible'});
 			}
 		}).slick({
+			fade: true,
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			infinite: true,
