@@ -164,13 +164,57 @@ function slidersInit(){
 				$(this).css({'visibility':'visible'});
 			}
 		}).slick({
-			slidesToShow: 1,
+			slidesToShow: 5,
+			slidesToScroll: 5,
 			centerMode: false,
-			variableWidth: true,
+			variableWidth: false,
 			infinite: false,
 			speed: 200,
 			dots: true,
-			arrows: false
+			arrows: false,
+			responsive: [{
+				breakpoint: 1920,
+				settings: {
+					slidesToShow: 4,
+					slidesToScroll: 4
+				}
+			},{
+				breakpoint: 1640,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 3
+				}
+			},{
+				breakpoint: 1320,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2
+				}
+			},{
+				breakpoint: 1039,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
+				}
+			},{
+				breakpoint: 960,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2
+				}
+			},{
+				breakpoint: 700,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
+				}
+			},{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
+				}
+			}]
 		});
 	}
 
@@ -249,14 +293,14 @@ function slidersInit(){
 				.eq(slick.currentSlide)
 				.addClass('active');
 		}).slick({
-			fade: true,
+			fade: false,
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			infinite: true,
 			speed: 300,
 			dots: false,
 			arrows: true,
-			adaptiveHeight: true
+			adaptiveHeight: false
 		}).on('beforeChange', function(event, slick, currentSlide, nextSlide){
 			var $yearsListLi = $(this).closest('.sect-history').find('.years-list').find('li');
 
@@ -384,7 +428,7 @@ function stickyLayout(){
 			resizeTimerAside = setTimeout(function () {
 				$aside.stick_in_parent({ // sticky element do not have relative
 					parent: '.main-holder', // parent must have relative
-					bottoming: '.pre-footer'
+					bottoming: '.footer'
 				});
 			}, 100);
 		});

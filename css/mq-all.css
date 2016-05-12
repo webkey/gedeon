@@ -372,6 +372,14 @@
 		line-height: 33px;
 		letter-spacing: 0.05em;
 	}
+	.enter-wrap {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.enter__notice{
+		padding-left: 0;
+		padding-right: 0;
+	}
 	/*enter end*/
 
 	/*sing up*/
@@ -729,6 +737,7 @@
 	}
 	.enter__login h2{ padding: 0 0 30px; }
 	.enter__form-button { padding: 21px 0 30px; }
+	.enter__notice{ text-align: center; }
 	/*enter end*/
 
 	/*sing up*/
@@ -949,7 +958,10 @@
 		line-height: 24px;
 		letter-spacing: 0.1em;
 	}
-	.footer-col:first-child{ border: none; }
+	.footer-col:first-child,
+	.footer-col:first-child + .footer-col{ border: none; }
+	.footer-col:first-child{ padding-bottom: 4px; }
+	.footer-col:first-child + .footer-col{ padding-top: 4px; }
 	/*FOOTER end*/
 }
 
