@@ -281,6 +281,14 @@
 	/*PRE FOOTER*/
 }
 
+@media only screen and (max-width: 1099px){
+	.targets__item {
+		display: block;
+		vertical-align: top;
+		width: auto;
+	}
+}
+
 @media only screen and (max-width: 959px){
 	/*MAIN CONTENT*/
 	.main-content{ margin-right: 0; }
@@ -392,7 +400,13 @@
 	}
 	/*sing up end*/
 
-
+	/*targets*/
+	.targets__item {
+		display: inline-block;
+		vertical-align: top;
+		width: 49.98%;
+	}
+	/*targets end*/
 	/*MAIN CONTENT end*/
 
 	/*ASIDE*/
@@ -495,6 +509,13 @@
 		width: 242px;
 		height: 50px;
 	}
+	/*targets*/
+	.targets__item {
+		display: block;
+		vertical-align: top;
+		width: auto;
+	}
+	/*targets end*/
 }
 
 @media only screen and (max-width: 639px){
@@ -859,9 +880,8 @@
 	}
 	.history-slider__item dd { padding: 0 0 15px 20px; }
 
-	.targets__item{ width: auto; }
 	.targets__item h3{ padding: 20px 40px 20px 20px; }
-	.targets__angle{ right: 18px; }
+	.targets__angle{ right: 18px; top: 27px; }
 	.targets__panel{ padding: 0 20px 22px; }
 
 	.sect-structure{ padding-top: 30px; }

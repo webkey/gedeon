@@ -1039,6 +1039,34 @@ input[type="radio"]:disabled + span:before{
 }
 input[type="radio"]:disabled + label:after,
 input[type="radio"]:disabled + span:after{ background: #bdbdbd; }
+
+input[type="radio"] + label.test-true:before,
+.test-true input[type="radio"] + span:before,
+input[type="checkbox"] + label.test-true:before,
+.test-true input[type="checkbox"] + span:before{
+	border-color: #91c405;
+	box-shadow: inset 0 2px 6px rgba(153, 200, 23, 0.42);
+}
+input[type="checkbox"]:disabled + label.test-true,
+.test-true input[type="checkbox"]:disabled + span,
+input[type="radio"]:disabled + label.test-true,
+.test-true input[type="radio"]:disabled + span {
+	color: #91c405;
+}
+
+input[type="radio"] + label.test-false:before,
+.test-false input[type="radio"] + span:before,
+input[type="checkbox"] + label.test-false:before,
+.test-false input[type="checkbox"] + span:before{
+	border-color: #ff0101;
+	box-shadow: inset 0 2px 6px rgba(255, 1, 1, 0.42);
+}
+input[type="checkbox"]:disabled + label.test-false,
+.test-false input[type="checkbox"]:disabled + span,
+input[type="radio"]:disabled + label.test-false,
+.test-false input[type="radio"]:disabled + span {
+	color: #ff0101;
+}
 /*radiobutton end*/
 
 .form-line{
@@ -2019,11 +2047,23 @@ html.desktop .nav-list a:hover:before{
 	padding-top: 4px;
 }
 .test-box__content h3 a:hover{ text-decoration: underline; }
+.test-box__result{
+	display: block;
+	font: 12px/18px 'lato-black', Arial, Helvetica, sans-serif;
+	letter-spacing: 0.1em;
+	color: #29166f;
+	text-transform: uppercase;
+	padding-top: 18px;
+}
+.test-box__test + .test-box__result{ padding-top: 8px; }
+.test-box__result > span{ color: #29166f; }
 .test-box__text{
 	padding: 9px 0 9px;
 	letter-spacing: 0.05em;
 	min-height: 60px;
 }
+.test-done .test-box__text{ display: none; }
+.test-max .test-box__text{ display: block; }
 .test-box__text .mark{
 	font-size: 16px;
 	font-family: 'lato-black', Arial, Helvetica, sans-serif;
@@ -2737,7 +2777,7 @@ html.desktop .nav-list a:hover:before{
 .paging,
 .user-content .paging{
 	list-style: none;
-	padding: 0;
+	padding: 0 0 36px;
 	margin: 0;
 	font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
 	line-height: 36px;
@@ -2797,8 +2837,8 @@ html.desktop .nav-list a:hover:before{
 	position: relative;
 	top: 2px;
 }
-.paging .prev i{ left: 1px; }
-.paging .next i{ right: 1px; }
+.paging .prev i{ left: -1px; }
+.paging .next i{ right: -1px; }
 
 /*paging end*/
 
@@ -3649,7 +3689,8 @@ html.desktop .history-slider .slick-next:hover:after{ background-position: 0 -11
 	width: 49.98%;
 	padding: 0 10px 20px;
 	box-sizing: border-box;
-	font-size: 16px;
+	font-size: 14px;
+	line-height: 26px;
 	letter-spacing: normal;
 }
 .targets__holder{
@@ -3668,8 +3709,7 @@ html.desktop .history-slider .slick-next:hover:after{ background-position: 0 -11
 }
 .targets__item h3{
 	position: relative;
-	padding: 27px 50px 27px 35px;
-	cursor: pointer;
+	padding: 27px 50px 16px 35px;
 	box-sizing: border-box;
 	font-family: 'lato-black', Arial, Helvetica, sans-serif;
 	font-size: 0;
@@ -3682,11 +3722,11 @@ html.desktop .history-slider .slick-next:hover:after{ background-position: 0 -11
 	content: '';
 	display: inline-block;
 	min-height: 100%;
-	vertical-align: middle;
+	vertical-align: top;
 }
 .targets__item h3 .text-inner{
 	display: inline-block;
-	vertical-align: middle;
+	vertical-align: top;
 	width: 98%;
 	font-size: 13px;
 	letter-spacing: 0.1em;
@@ -3703,11 +3743,10 @@ html.desktop .history-slider .slick-next:hover:after{ background-position: 0 -11
 }
 .targets__angle{
 	position: absolute;
-	top: 50%;
+	top: 34px;
 	right: 30px;
 	height: 7px;
 	width: 12px;
-	margin: -4px 0 0;
 }
 .targets__angle:before,
 .targets__angle:after{
@@ -3717,7 +3756,7 @@ html.desktop .history-slider .slick-next:hover:after{ background-position: 0 -11
 	height: 2px;
 	width: 9px;
 	margin-top: 6px;
-	background: #ccc;
+	background: #006edc;
 	border-radius: 2px;
 	-webkit-transition-property: background, -webkit-transform;
 	transition-property: background, transform;
@@ -3738,25 +3777,8 @@ html.desktop .history-slider .slick-next:hover:after{ background-position: 0 -11
 	-ms-transform: translate(1px, -4px) rotate(-45deg);
 	transform: translate(1px, -4px) rotate(-45deg);
 }
-.targets__item h3:hover .targets__angle:before,
-.targets__item h3:hover .targets__angle:after,
-.targets__item.active .targets__angle:before,
-.targets__item.active .targets__angle:after{ background-color: #006edc; }
-.targets__item.active .targets__angle:before{
-	-webkit-transform: translate(-1px, -4px) rotate(-45deg);
-	-ms-transform: translate(-1px, -4px) rotate(-45deg);
-	transform: translate(-1px, -4px) rotate(-45deg);
-}
-.targets__item.active .targets__angle:after{
-	-webkit-transform: translate(1px, -4px) rotate(45deg);
-	-ms-transform: translate(1px, -4px) rotate(45deg);
-	transform: translate(1px, -4px) rotate(45deg);
-}
 
-.targets__panel-wrap{
-	overflow: hidden;
-	height: 0;
-}
+.targets__panel-wrap{ overflow: hidden; }
 .targets__panel{
 	padding: 0 37px 27px;
 	-webkit-box-sizing: border-box;
