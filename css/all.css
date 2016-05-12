@@ -2055,7 +2055,7 @@ html.desktop .nav-list a:hover:before{
 	text-transform: uppercase;
 	padding-top: 18px;
 }
-.test-box__test + .test-box__result{ padding-top: 8px; }
+.test-box__test-status .test-box__result{ padding-top: 0; }
 .test-box__result > span{ color: #29166f; }
 .test-box__text{
 	padding: 9px 0 9px;
