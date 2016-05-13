@@ -472,7 +472,8 @@ button{
 	-webkit-transition: 0.2s;
 	transition: 0.2s;
 }
-[class*="btn-small"]:hover{
+[class*="btn-small"]:hover,
+a:hover [class*="btn-small"]{
 	background: #29166f;
 	color: #fff;
 }
@@ -2883,8 +2884,6 @@ html.desktop .nav-list a:hover:before{
 .tests{ margin: 0 auto; }
 .tests__list{
 	margin: 0 13px;
-	text-align: center;
-
 	font-size: 0;
 	letter-spacing: -4px;
 }
@@ -2902,9 +2901,11 @@ html.desktop .nav-list a:hover:before{
 
 /*test*/
 .test{
+	display: block;
 	text-align: center;
 	position: relative;
 	box-sizing: border-box;
+	text-decoration: none;
 }
 .test__inner{
 	display: block;
@@ -3066,25 +3067,32 @@ html.desktop .nav-list a:hover:before{
 	padding: 0 0 4px;
 }
 .test__test-done,
-.test__test-done a{ color: #91c405; }
-.test__test-again,
-.test__test-again a{ color: #83cff0; }
 .test__test-done a,
-.test__test-again a{ text-decoration: underline; }
+.test__test-done > span{ color: #91c405; }
+.test__test-again,
+.test__test-again a,
+.test__test-again > span{ color: #83cff0; }
+.test__test-done a,
+.test__test-again a,
+.test__test-done > span,
+.test__test-again > span{ text-decoration: underline; }
 .test__test-done a:hover,
-.test__test-again a:hover{ text-decoration: none; }
+.test__test-again a:hover,
+a:hover .test__test-done > span,
+a:hover .test__test-again > span{ text-decoration: none; }
 
-.test__test-btn,
 .test__test-status,
 .test__test-done,
 .test__test-again{ display: none; }
 .test.has-test .test__test-btn{ display: inline-block; }
+.test-done .test__test-btn,
+.test-again .test__test-btn{ display: none; }
 .test.test-done .test__test,
 .test.test-again .test__test{ bottom: 46px; }
-.test.test-done .test__test-status,
-.test.test-done .test__test-done{ display: block; }
-.test.test-again .test__test-status,
-.test.test-again .test__test-again{ display: block; }
+.test-done .test__test-status,
+.test-done .test__test-done{ display: block; }
+.test-again .test__test-status,
+.test-again .test__test-again{ display: block; }
 /*test end*/
 
 /*others*/
@@ -4471,7 +4479,6 @@ a.cabinet__btn:hover>span{ border-color: transparent; }
 	text-decoration: none;
 }
 .exam__title a:hover{ text-decoration: underline; }
-.exam__btn{}
 /*exam end*/
 
 /*tests slider*/
@@ -4582,13 +4589,6 @@ a.cabinet__btn:hover>span{ border-color: transparent; }
 	margin: 0 auto;
 }
 .no-js .tray{ visibility: visible; }
-
-.exam-counter{
-	font: 14px/18px 'lato-regular', Arial, Helvetica, sans-serif;
-	text-align: center;
-	padding: 0 0 49px;
-	color: #73afec;
-}
 /*exam slider end*/
 .tray__col{
 	float: left;
