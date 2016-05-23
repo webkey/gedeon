@@ -2011,16 +2011,34 @@ html.desktop .nav-list a:hover:before{
 	top: 50%;
 	width: 180px;
 	height: 180px;
-	overflow: hidden;
-	border-radius: 50%;
 	margin: -90px 37px 0 0;
 
 	font-size: 14px;
 	letter-spacing: normal;
 }
+.test-box__img a{
+	display: block;
+	height: 100%;
+	border-radius: 50%;
+}
 .test-box__img img{
 	display: block;
 	border-radius: 50%;
+}
+.test-box__img .test__check,
+.test-box__img .test__label{
+	border-color: #fff;
+	background-color: #fff;
+}
+.test-box__img .test__label>span{
+	z-index: 1;
+	opacity: 1;
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+	display: none;
+}
+.test-box__img .test__label>span:first-child + span{
+	display: block;
 }
 
 .test-box__holder{
@@ -2049,13 +2067,16 @@ html.desktop .nav-list a:hover:before{
 }
 .test-box__content h3 a:hover{ text-decoration: underline; }
 .test-box__result{
-	display: block;
 	font: 12px/18px 'lato-black', Arial, Helvetica, sans-serif;
 	letter-spacing: 0.1em;
 	color: #29166f;
 	text-transform: uppercase;
 	padding-top: 18px;
+	display: none;
 }
+.test-again .test-box__result-prev{ display: block; }
+.test-done .test-box__result-next,
+.test-show .test-box__result-next{ display: block; }
 .test-box__test-status .test-box__result{ padding-top: 0; }
 .test-box__result > span{ color: #29166f; }
 .test-box__text{
@@ -2064,6 +2085,7 @@ html.desktop .nav-list a:hover:before{
 	min-height: 60px;
 }
 .test-done .test-box__text{ display: none; }
+.test-show .test-box__text{ display: none; }
 .test-max .test-box__text{ display: block; }
 .test-box__text .mark{
 	font-size: 16px;
@@ -2077,6 +2099,7 @@ html.desktop .nav-list a:hover:before{
 .test-box.has-test .test-box__test,
 .test-box.test-status .test-box__test,
 .test-box.test-done .test-box__test,
+.test-box.test-show .test-box__test,
 .test-box.test-again .test-box__test{
 	display: block;
 }
@@ -2091,6 +2114,8 @@ html.desktop .nav-list a:hover:before{
 }
 .test-box__test-done,
 .test-box__test-done a{ color: #91c405; }
+.test-box__test-show,
+.test-box__test-show a{ color: #ffb200; }
 .test-box__test-again,
 .test-box__test-again a{ color: #83cff0; }
 .test-box__test-done a,
@@ -2101,10 +2126,13 @@ html.desktop .nav-list a:hover:before{
 .test-box__test-btn,
 .test-box__test-status,
 .test-box__test-done,
+.test-box__test-show,
 .test-box__test-again{ display: none; }
 .test-box.has-test .test-box__test-btn{ display: inline-block; }
 .test-box.test-done .test-box__test-status,
 .test-box.test-done .test-box__test-done{ display: block; }
+.test-box.test-show .test-box__test-status,
+.test-box.test-show .test-box__test-show{ display: block; }
 .test-box.test-again .test-box__test-status,
 .test-box.test-again .test-box__test-again{ display: block; }
 /*test box end*/
@@ -2698,22 +2726,30 @@ html.desktop .nav-list a:hover:before{
 }
 .article__test-done,
 .article__test-done a{ color: #91c405; }
+.article__test-show,
+.article__test-show a{ color: #91c405; }
 .article__test-again,
 .article__test-again a{ color: #83cff0; }
 .article__test-done a,
+.article__test-show a,
 .article__test-again a{ text-decoration: underline; }
 .article__test-done a:hover,
+.article__test-show a:hover,
 .article__test-again a:hover{ text-decoration: none; }
 
 .article__test-btn,
 .article__test-status,
 .article__test-done,
+.article__test-show,
 .article__test-again{ display: none; }
 .article.has-test .article__test-btn{ display: inline-block; }
 .article.test-done .article__test,
+.article.test-show .article__test,
 .article.test-again .article__test{ bottom: 25px; }
 .article.test-done .article__test-status,
 .article.test-done .article__test-done{ display: block; }
+.article.test-show .article__test-status,
+.article.test-show .article__test-show{ display: block; }
 .article.test-again .article__test-status,
 .article.test-again .article__test-again{ display: block; }
 
@@ -2923,6 +2959,7 @@ html.desktop .nav-list a:hover:before{
 }
 .has-test .test__inner,
 .test-done .test__inner,
+.test-show .test__inner,
 .test-again .test__inner{ padding-bottom: 100px; }
 .test:hover .test__inner{
 	text-decoration: none;
@@ -2984,9 +3021,22 @@ html.desktop .nav-list a:hover:before{
 	width: 14px;
 	height: 13px;
 }
+.test-show .test__check:before{
+	background: url(../img/depict-test-show.png) no-repeat;
+	-webkit-background-size: contain;
+	background-size: contain;
+	left: 6px;
+	top: 5px;
+	width: 18px;
+	height: 20px;
+}
 .test-done .test__check{
 	display: block;
 	background: #91c405;
+}
+.test-show .test__check{
+	display: block;
+	background: #ffb200;
 }
 .test-again .test__check{
 	display: block;
@@ -3050,6 +3100,7 @@ html.desktop .nav-list a:hover:before{
 }
 .has-test .test__test,
 .test-done .test__test,
+.test-show .test__test,
 .test-again .test__test{ display: block; }
 
 .test__test-status{
@@ -3062,6 +3113,7 @@ html.desktop .nav-list a:hover:before{
 	text-transform: uppercase;
 }
 .test__test-done,
+.test__test-show,
 .test__test-again{
 	display: block;
 	padding: 0 0 4px;
@@ -3069,28 +3121,40 @@ html.desktop .nav-list a:hover:before{
 .test__test-done,
 .test__test-done a,
 .test__test-done > span{ color: #91c405; }
+.test__test-show,
+.test__test-show a,
+.test__test-show > span{ color: #ffb200; }
 .test__test-again,
 .test__test-again a,
 .test__test-again > span{ color: #83cff0; }
 .test__test-done a,
+.test__test-show a,
 .test__test-again a,
 .test__test-done > span,
+.test__test-show > span,
 .test__test-again > span{ text-decoration: underline; }
 .test__test-done a:hover,
+.test__test-show a:hover,
 .test__test-again a:hover,
 a:hover .test__test-done > span,
+a:hover .test__test-show > span,
 a:hover .test__test-again > span{ text-decoration: none; }
 
 .test__test-status,
 .test__test-done,
+.test__test-show,
 .test__test-again{ display: none; }
 .test.has-test .test__test-btn{ display: inline-block; }
 .test-done .test__test-btn,
+.test-show .test__test-btn,
 .test-again .test__test-btn{ display: none; }
 .test.test-done .test__test,
+.test.test-show .test__test,
 .test.test-again .test__test{ bottom: 46px; }
 .test-done .test__test-status,
 .test-done .test__test-done{ display: block; }
+.test-show .test__test-status,
+.test-show .test__test-show{ display: block; }
 .test-again .test__test-status,
 .test-again .test__test-again{ display: block; }
 /*test end*/
