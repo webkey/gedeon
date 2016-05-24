@@ -589,8 +589,9 @@ function scrollMenu(){
 	var $contactsAnchor = $('.menu');
 
 	if($contactsAnchor.length){
+		var offset = $('body').hasClass('no-authorized') ? 0 : 75;
 		$contactsAnchor.find('a').navScroller({
-			scrollToOffset: 75
+			scrollToOffset: offset
 		});
 	}
 }
@@ -757,6 +758,20 @@ $('select').on('change', function() {
 /*choose "other" param end*/
 /* multiselect init end */
 
+/*countimator*/
+function countimatorInit(){
+	var $counter = $(".counter");
+	$(window).on('load', function () {
+		$counter.css('visibility', 'visible');
+	});
+	setTimeout(function () {
+		$counter.countimator({
+			duration: 1000
+		});
+	}, 100);
+}
+/*countimator end*/
+
 /*content min height*/
 function contentMinHeight(){
 	$(window).on('load resizeByWidth', function () {
@@ -784,6 +799,7 @@ $(document).ready(function(){
 	if(DESKTOP){
 		customSelect($('select.cselect'));
 	}
+	countimatorInit();
 
 	contentMinHeight();
 });

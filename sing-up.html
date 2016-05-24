@@ -22,7 +22,7 @@
 	<!--Modernizr-->
 	<script src="js/vendor/modernizr-3.3.1.custom.min.js"></script>
 </head>
-<body class="enter-page">
+<body class="enter-page no-authorized">
 <!--[if lte IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -38,11 +38,17 @@
 						<!--HEADER-->
 						<header class="header">
 							<div class="header__top">
+								<!--btn-sing-in (show if no authorized)-->
+								<div class="btn-sing-in">
+									<a href="sing-up.html" title="Войти"><span>Вход</span> <i class="icon-in-alt"></i></a>
+								</div>
+								<!--btn-sing-in end-->
+
 								<!--sub-menu-->
 								<ul class="sub-menu">
 									<li><a href="about.html"><span>О компании</span></a></li>
 									<li><a href="news-previews.html"><span>Новости</span></a></li>
-									<li><a href="contacts.html"><span>Контакты</span></a></li>
+									<li><a href="news.html"><span>Контакты</span></a></li>
 								</ul>
 								<!--sub-menu end-->
 
@@ -331,6 +337,12 @@
 														</label>
 													</div>
 												</div>
+												<div class="sing-up__buttons">
+													<div class="btn-default">
+														<span class="btn-default__inner">Зарегистрироваться</span>
+														<input type="submit" value="">
+													</div>
+												</div>
 												<div class="confirm-box">
 													<div class="confirm-code">
 														<div class="label-holder">
@@ -346,12 +358,6 @@
 															<span class="btn-default__inner">Отправить</span>
 															<input type="submit" value="" disabled>
 														</div>
-													</div>
-												</div>
-												<div class="sing-up__buttons">
-													<div class="btn-default">
-														<span class="btn-default__inner">Зарегистрироваться</span>
-														<input type="submit" value="">
 													</div>
 												</div>
 											</form>

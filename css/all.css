@@ -101,12 +101,9 @@
 	text-indent: 0;
 }
 
-.icon-angle-right:before {
-	content: "\e900";
-}
-.icon-angle-left:before {
-	content: "\e901";
-}
+.icon-in-alt:before { content: "\e902"; }
+.icon-angle-right:before { content: "\e900"; }
+.icon-angle-left:before { content: "\e901"; }
 /*icomoon end*/
 /*fonts end*/
 
@@ -1451,6 +1448,9 @@ div.cselect-center .ui-multiselect-checkboxes label{ text-align: left; }
 	margin: 0 320px 0 0;
 	min-height: 50px;
 }
+.no-authorized .main-content{
+	margin-right: 0;
+}
 .enter-page .main-content{ background: #006edc; }
 
 .aside__holder{
@@ -1498,6 +1498,9 @@ div.cselect-center .ui-multiselect-checkboxes label{ text-align: left; }
 	position: relative;
 	overflow: hidden;
 }
+.no-authorized .header__top{
+	background: #fff;
+}
 /*logo*/
 .logo{
 	float: left;
@@ -1530,6 +1533,12 @@ div.cselect-center .ui-multiselect-checkboxes label{ text-align: left; }
 	-webkit-transition-delay: 0s;
 	transition-delay: 0s;
 }
+.header-fixed .no-authorized .logo{
+	opacity: 1;
+	-webkit-transform: scale(1, 1);
+	-ms-transform: scale(1, 1);
+	transform: scale(1, 1);
+}
 .logo a,
 .logo > span{
 	display: block;
@@ -1546,6 +1555,7 @@ div.cselect-center .ui-multiselect-checkboxes label{ text-align: left; }
 	font-size: 14px;
 	line-height: 18px;
 	letter-spacing: 0.05em;
+	overflow: hidden;
 }
 .sub-menu li{
 	float: left;
@@ -1571,12 +1581,41 @@ div.cselect-center .ui-multiselect-checkboxes label{ text-align: left; }
 	-webkit-transition-duration: 0.3s;
 	transition-duration: 0.3s;
 }
-.sub-menu a:hover span{
-	border-color: transparent;
-	-webkit-transition-duration: 0.6s;
-	transition-duration: 0.6s;
-}
+.sub-menu a:hover span{ border-color: transparent; }
 /*sub-menu end*/
+
+/*btn-sing-in*/
+.btn-sing-in{
+	float: right;
+	z-index: 99;
+	font-size: 14px;
+	line-height: 18px;
+	letter-spacing: 0.05em;
+	padding: 44px 0 0;
+	margin-left: 120px;
+	display: none;
+}
+.no-authorized .btn-sing-in{ display: block; }
+.enter-page.no-authorized .btn-sing-in{ display: none; }
+.btn-sing-in a{
+	color: #006edc;
+	text-decoration: none;
+}
+.btn-sing-in a>span{
+	vertical-align: top;
+	border-bottom: 1px solid #006edc;
+	-webkit-transition-property: border;
+	transition-property: border;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+}
+.btn-sing-in a:hover>span{ border-bottom-color: transparent; }
+.btn-sing-in a>i{
+	display: inline-block;
+	vertical-align: top;
+	margin: 5px 0 0;
+}
+/*btn-sing-in end*/
 
 /*h-text*/
 .h-text{
@@ -1660,6 +1699,7 @@ html.desktop .btn-aside.active{ /*hover*/ }
 	-webkit-transition-duration: 0.3s;
 	transition-duration: 0.3s;
 }
+.no-authorized .main-nav-wrap{ display: none; }
 .main-nav{
 	position: relative;
 	width: 100%;
@@ -1687,6 +1727,7 @@ html.desktop .btn-aside.active{ /*hover*/ }
 	transition-duration: 0.3s;
 }
 .header-fixed .main-nav__holder{ margin-right: 320px; }
+.header-fixed .no-authorized .main-nav__holder{ margin-right: 0; }
 .header-hide .main-nav__holder{ box-shadow: 0 0 0 rgba(0, 0, 0, 0.0); }
 /*logo-sm*/
 .logo-short{
@@ -3462,15 +3503,24 @@ html.desktop .others-list .slick-dots li:hover button {
 	text-align: center;
 	color: #fff;
 }
-.sect-date__presence-amount{
+.sect-date__presence-box .counter-wheel{
+	display: block;
 	width: 135px;
 	height: 135px;
-	background: no-repeat 50% 50%;
-	-webkit-background-size: contain;
-	background-size: contain;
-	margin: 0 auto 20px;
+	border: none;
+	padding: 6px;
+	background: #006edc;
+	color: #fff;
+	font-family: 'Roboto Slab', Times, serif;
+	font-weight: bold;
 	font-size: 36px;
-	line-height: 134px;
+	margin: 0 auto 20px;
+	visibility: hidden;
+}
+.no-js .sect-date__presence-box .counter-wheel{ visibility: visible; }
+.sect-date__presence-box .counter-wheel:before{ background: #00376e; }
+.sect-date__presence-box .counter-wheel svg .counter-wheel-highlight {
+	fill: #00bfff;
 }
 /*section data end*/
 
@@ -4048,6 +4098,10 @@ html.desktop .history-slider .slick-next:hover:after{ background-position: 0 -11
 	position: fixed;
 	top: 85px;
 }
+.header-fixed .no-authorized .menu{
+	position: absolute;
+	top: 145px;
+}
 .menu-list,
 .user-content .menu-list{
 	font: bold 18px/60px 'Roboto Slab', serif;
@@ -4151,6 +4205,9 @@ html.tablet .menu-list a:hover .text-inner{
 	background: #006edc;
 	z-index: 99;
 	box-sizing: border-box;
+}
+.no-authorized .aside{
+	display: none;
 }
 .aside-overlay{
 	background: rgba(0, 0, 0, 0.79);
