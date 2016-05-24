@@ -664,7 +664,10 @@
 	.header-fixed .main-nav-wrap,
 	.header-fixed .main-nav,
 	.header-fixed .main-nav__holder{ height: 50px; }
-	.no-authorized .main-nav-wrap{ display: block; }
+	.no-authorized .main-nav-wrap{
+		display: block;
+		background: #fff;
+	}
 	.nav{ display: none; }
 	/*main navigation end*/
 	/*HEADER END*/
