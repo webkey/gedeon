@@ -31,13 +31,21 @@ function placeholderInit(){
 function footerBottom(){
 	var footer = $('.footer');
 	$(window).on('load resizeByWidth', function () {
-		var footerOuterHeight = footer.outerHeight();
-		footer.css({
-			'margin-top': -footerOuterHeight
-		});
-		$('.spacer').css({
-			'height': footerOuterHeight
-		});
+		function footerBottomChange() {
+			var footerOuterHeight = footer.outerHeight();
+			footer.css({
+				'margin-top': -footerOuterHeight
+			});
+			$('.spacer').css({
+				'height': footerOuterHeight
+			});
+		}
+
+		footerBottomChange();
+
+		setTimeout(function () {
+			footerBottomChange();
+		}, 600);
 	})
 }
 /* footer at bottom end */
@@ -775,7 +783,11 @@ function countimatorInit(){
 /*content min height*/
 function contentMinHeight(){
 	$(window).on('load resizeByWidth', function () {
-		$('.main-content').css('min-height', $('.aside').outerHeight());
+		var $aside = $('.aside');
+		if(!$aside.length || $aside.is(':hidden')){
+			return;
+		}
+		$('.main-content').css('min-height', $aside.outerHeight());
 	})
 }
 /*content min height end*/
