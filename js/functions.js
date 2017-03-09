@@ -515,9 +515,121 @@ function articlesLayout(){
 	});
 
 	imagesLoaded($articles, function () {
-		var $articlesLayout = $articles.masonry({
+		// var $articlesLayout = $articles.masonry({
+		// 	itemSelector: '.articles__item',
+		// 	percentPosition: true
+		// });
+
+		var $body = $('body'),
+			$filtersWrapper = $('.articles__list'),
+			$filtersTagsGroup = $('.filters-tags-js'),
+			dataFilter = 'data-filter',
+			tags = {},
+			methodAndInit = false,
+			methodOrInit = false
+
+		;
+		// init Isotope
+		var $articlesGrid = $articles.isotope({
+			// options
 			itemSelector: '.articles__item',
 			percentPosition: true
+		});
+
+		// bind filter tag click
+		$filtersTagsGroup.on( 'change', ':checkbox', function(e) {
+			e.preventDefault();
+
+			var $currentTag = $( this ),
+				dataTagsGroup = $currentTag.closest('.tags-group-js').attr('data-tags-group'),
+				currentDataFilter = $currentTag.attr(dataFilter),
+				filterMethod = $currentTag.closest($filtersTagsGroup).attr('data-filter-method'),
+				// currentTagIsChecked = $currentTag.prop( 'checked' );
+				currentTagIsChecked = $currentTag.prop( 'checked' );
+
+			console.log("currentTagIsChecked: ", currentTagIsChecked);
+
+			if (filterMethod === 'or' && !currentTagIsChecked) {
+				methodOrInit = true
+			} else if (filterMethod === 'or' && currentTagIsChecked) {
+				methodOrInit = false;
+			}
+
+			if (currentTagIsChecked && filterMethod === 'and') {
+				methodAndInit = false;
+			} else if (filterMethod === 'and') {
+				methodAndInit = currentDataFilter;
+			}
+
+			dataTagsGroup = (dataTagsGroup === undefined) ?
+				currentDataFilter :
+				dataTagsGroup;
+
+			// tags [ dataTagsGroup ] = (currentTagIsChecked) ?
+			// 	'' :
+			// 	currentDataFilter;
+
+			if (currentTagIsChecked) {
+				tags [ dataTagsGroup ] = currentDataFilter;
+			} else {
+				tags [ dataTagsGroup ] = '';
+			}
+
+			console.log("tags: ", tags);
+
+			var filterValue = (filterMethod === 'or' || methodAndInit || currentTagIsChecked) ? concatValuesOR( tags ) : concatValuesEND ( tags );
+
+			console.log("filterValue: ", filterValue);
+
+			$articlesGrid.isotope({ filter: filterValue });
+		});
+
+		// concatenation values of tags OR;
+		// example return '.prop1, .prop2';
+		// show items which contains prop1 or prop2;
+		function concatValuesOR(obj) {
+			// console.log('OR');
+			var value,
+				arr = [];
+
+			for ( var prop in obj ) {
+				var thisProp = obj[ prop ];
+				if (!thisProp) continue;
+				if (methodOrInit && obj[ prop ] === methodAndInit) continue;
+				thisProp = (methodAndInit) ? (methodAndInit + thisProp) : thisProp;
+				arr.push(thisProp);
+			}
+
+			value = arr.join(', ');
+			return value;
+		}
+
+		// concatenation values of tags END;
+		// example return '.prop1.prop2';
+		// show items which contains prop1 and prop2;
+		function concatValuesEND(obj) {
+			// console.log('END');
+			var value = '';
+
+			for ( var prop in obj ) {
+				value += obj[ prop ];
+			}
+
+			return value;
+		}
+
+		// add "no product" template
+		var tempNoProducts = $('<h3 style="text-align: center; color: tomato;">Нет совпадений</h3>');
+		tempNoProducts.hide().insertAfter($filtersWrapper);
+		$articlesGrid.on( 'arrangeComplete', function( event, filteredItems ) {
+			var lengthItems = filteredItems.length;
+
+			// "no product" show / hide
+			if (!lengthItems) {
+				tempNoProducts.show();
+			} else {
+				tempNoProducts.hide();
+			}
 		});
 	});
 }
@@ -792,6 +904,230 @@ function contentMinHeight(){
 }
 /*content min height end*/
 
+
+/**
+ * !toggle hover class
+ * */
+(function ($) {
+	var HoverClass = function (settings) {
+		var options = $.extend({
+			container: 'ul',
+			item: 'li',
+			drop: 'ul'
+		},settings || {});
+
+		var self = this;
+		self.options = options;
+
+		var container = $(options.container);
+		self.$container = container;
+		self.$item = $(options.item, container);
+		self.$drop = $(options.drop, container);
+
+		self.modifiers = {
+			hover: 'hover',
+			hoverNext: 'hover_next',
+			hoverPrev: 'hover_prev'
+		};
+
+		self.addClassHover();
+
+		if (!DESKTOP) {
+			$(window).on('debouncedresize', function () {
+				self.removeClassHover();
+			});
+		}
+	};
+
+	HoverClass.prototype.addClassHover = function () {
+		var self = this,
+			_hover = this.modifiers.hover,
+			_hoverNext = this.modifiers.hoverNext,
+			_hoverPrev = this.modifiers.hoverPrev,
+			$item = self.$item,
+			item = self.options.item,
+			$container = self.$container;
+
+		if (!DESKTOP) {
+
+			$container.on('click', ''+item+'', function (e) {
+				var $currentAnchor = $(this);
+				var currentItem = $currentAnchor.closest($item);
+
+				if (!currentItem.has(self.$drop).length){ return; }
+
+				e.stopPropagation();
+
+				if (currentItem.hasClass(_hover)){
+					currentItem.removeClass(_hover).find('.'+_hover+'').removeClass(_hover);
+					return;
+				}
+
+				$('.'+_hover+'').not($currentAnchor.parents('.'+_hover+''))
+					.removeClass(_hover)
+					.find('.'+_hover+'')
+					.removeClass(_hover);
+				currentItem.addClass(_hover);
+
+				e.preventDefault();
+			});
+
+			$container.on('click', ''+self.options.drop+'', function (e) {
+				e.stopPropagation();
+			});
+
+			$(document).on('click', function () {
+				$item.removeClass(_hover);
+			});
+
+		} else {
+			$container.on('mouseenter', ''+item+'', function () {
+
+				var currentItem = $(this);
+
+				if (currentItem.prop('hoverTimeout')) {
+					currentItem.prop('hoverTimeout', clearTimeout(currentItem.prop('hoverTimeout')));
+				}
+
+				currentItem.prop('hoverIntent', setTimeout(function () {
+					currentItem.addClass(_hover);
+					currentItem.next().addClass(_hoverNext);
+					currentItem.prev().addClass(_hoverPrev);
+				}, 50));
+
+			}).on('mouseleave', ''+ item+'', function () {
+
+				var currentItem = $(this);
+
+				if (currentItem.prop('hoverIntent')) {
+					currentItem.prop('hoverIntent', clearTimeout(currentItem.prop('hoverIntent')));
+				}
+
+				currentItem.prop('hoverTimeout', setTimeout(function () {
+					currentItem.removeClass(_hover);
+					currentItem.next().removeClass(_hoverNext);
+					currentItem.prev().removeClass(_hoverPrev);
+				}, 50));
+
+			});
+
+		}
+	};
+
+	HoverClass.prototype.removeClassHover = function () {
+		var self = this;
+		self.$item.removeClass(self.modifiers.hover );
+	};
+
+	window.HoverClass = HoverClass;
+
+}(jQuery));
+
+function hoverClassInit(){
+	if($('.sub-nav').length){
+		new HoverClass({
+			container: ('.sub-nav'),
+			drop: '.js-nav-drop'
+		});
+	}
+}
+/*toggle hover class end*/
+
+/**
+ * !position drop menu
+ * */
+(function ($) {
+	// external js:
+	// 1) device.js 0.2.7 (widgets.js);
+	// 2) resizeByWidth (resize only width);
+
+	var PositionDropMenu = function (settings) {
+		var options = $.extend({
+			navContainer: null,
+			navList: null,
+			navMenuItem: 'li',
+			navDropMenu: '.js-nav-drop'
+		},settings || {});
+
+		this.options = options;
+
+		var container = $(options.navContainer);
+		this.$navContainer = container;
+		this.$navList = $(options.navList);
+		this.$navMenuItem = $(options.navMenuItem, container);     // Пункты навигации.
+		this.$navDropMenu = $(options.navDropMenu, container);     // Дроп-меню всех уровней.
+
+		this.modifiers = {
+			alignRight: 'align-right'
+		};
+
+		this.addAlignDropClass();
+		this.removeAlignDropClass();
+	};
+
+	PositionDropMenu.prototype.createAlignDropClass = function (item, drop) {
+		var self = this,
+			alightRightClass = self.modifiers.alignRight,
+			$navContainer = self.$navContainer;
+
+		// var navContainerPosRight = $navContainer.offset().left + $navContainer.outerWidth();
+		var navContainerPosRight = $navContainer.outerWidth();
+		var navDropPosRight = drop.offset().left + drop.outerWidth();
+
+		if(navContainerPosRight < navDropPosRight){
+			item.addClass(alightRightClass);
+		}
+	};
+
+	PositionDropMenu.prototype.addAlignDropClass = function () {
+		var self = this,
+			$navContainer = self.$navContainer,
+			navMenuItem = self.options.navMenuItem,
+			alightRightClass = self.modifiers.alignRight;
+
+		$navContainer.on('click', ''+navMenuItem+'', function () {
+			var $this = $(this);
+			var $drop = $this.find(self.$navDropMenu);
+
+			if ( !device.desktop() && $drop.length && !$this.hasClass(alightRightClass)) {
+				self.createAlignDropClass($this, $drop);
+			}
+		});
+
+		$navContainer.on('mouseenter', '' + navMenuItem + '', function () {
+			var $this = $(this);
+			var $drop = $this.find(self.$navDropMenu);
+
+			if ( device.desktop() && $drop.length && !$this.hasClass(alightRightClass)) {
+				self.createAlignDropClass($this, $drop);
+			}
+		});
+	};
+
+	PositionDropMenu.prototype.removeAlignDropClass = function () {
+		var self = this;
+		$(window).on('resizeByWidth', function () {
+			self.$navMenuItem.removeClass(self.modifiers.alignRight );
+		});
+	};
+
+	window.PositionDropMenu = PositionDropMenu;
+
+}(jQuery));
+
+function addAlignClass(){
+	if($('.sub-nav').length){
+		new PositionDropMenu({
+			navContainer: '.sub-nav',
+			navList: '.sub-nav-list',
+			navMenuItem: 'li',
+			navMenuAnchor: 'a',
+			navDropMenu: '.js-nav-drop'
+		});
+	}
+}
+/*position drop menu end*/
+
 /** ready/load/resize document **/
 
 $(document).ready(function(){
@@ -814,4 +1150,7 @@ $(document).ready(function(){
 	countimatorInit();
 
 	contentMinHeight();
+
+	hoverClassInit();
+	addAlignClass();
 });
