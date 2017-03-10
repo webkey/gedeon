@@ -1692,10 +1692,12 @@ html.desktop .btn-aside.active{ /*hover*/ }
 	transition-property: transform;
 	-webkit-transition-duration: 0.3s;
 	transition-duration: 0.3s;
+	box-sizing: border-box;
 }
 .header-fixed .main-nav{
 	position: fixed;
 	top: 0;
+	padding-right: 320px;
 }
 .header-hide .main-nav{
 	-webkit-transform: translate(0, -100%);
@@ -1711,7 +1713,6 @@ html.desktop .btn-aside.active{ /*hover*/ }
 	-webkit-transition-duration: 0.3s;
 	transition-duration: 0.3s;
 }
-.header-fixed .main-nav__holder{ margin-right: 320px; }
 .header-fixed .no-authorized .main-nav__holder{ margin-right: 0; }
 .header-hide .main-nav__holder{ box-shadow: 0 0 0 rgba(0, 0, 0, 0.0); }
 /*logo-sm*/
@@ -1822,11 +1823,11 @@ html.desktop .header-fixed .logo-short:hover{
 	transition-property: color, height;
 	-webkit-transition-duration: 0.3s, 0.3s;
 	transition-duration: 0.3s, 0.3s;
-	-webkit-transition-delay: 0s, 0.3s;
-	transition-delay: 0s, 0.3s;
+	height: 105px;
 }
-.nav-list a,
-.main-nav-wrap{ height: 105px; }
+.main-nav-wrap{
+	height: calc(105px + 60px); /*nav height + sub-nav height*/
+}
 .header-fixed .nav-list a{
 	height: 75px;
 	-webkit-transition-delay: 0s, 0s;
@@ -1872,8 +1873,8 @@ html.desktop .nav-list a:hover:before{ opacity: 1; }
 .nav-list .active a,
 .nav-list a:hover{
 	color: #006edc;
-	-webkit-transition-duration: 0.6s;
-	transition-duration: 0.6s;
+	-webkit-transition-duration: 0.6s, 0.3s;
+	transition-duration: 0.6s, 0.3s;
 }
 .nav-list a span{
 	display: table-cell;
@@ -1885,7 +1886,9 @@ html.desktop .nav-list a:hover:before{ opacity: 1; }
 /*main navigation end*/
 
 /*sub navigation*/
-.sub-nav{}
+.sub-nav{
+	height: 60px;
+}
 .sub-nav-list,
 .sub-nav-list ul{
 	list-style: none;
@@ -1985,6 +1988,13 @@ li.hover > .sub-nav-list__drop{
 	-ms-transform: translate(0, 0);
 	transform: translate(0, 0);
 }
+.sub-nav-drop-hide .sub-nav-list__drop{
+	-webkit-transform: translate(0, -20px) !important;
+	-ms-transform: translate(0, -20px) !important;
+	transform: translate(0, -20px) !important;
+	opacity: 0 !important;
+	visibility: hidden !important;
+}
 .sub-nav-list__drop > ul{
 	padding: 25px 0;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
@@ -2009,6 +2019,12 @@ html.desktop .sub-nav-list__drop label:hover span{
 	transition-duration: 0.5s;
 }
 /*sub navigation end*/
+
+/*sub navigation clone*/
+.aside .sub-nav{
+	height: auto;
+}
+/*sub navigation clone end*/
 /*HEADER end*/
 
 /*MAIN*/
