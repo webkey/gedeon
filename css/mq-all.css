@@ -38,6 +38,11 @@
 		letter-spacing: 0.025em;
 	}
 	/*main navigation end*/
+
+	.sub-nav-list > li{
+		-ms-flex: 1 1 100px;
+		flex: 1 1 100px;
+	}
 	/*HEADER END*/
 
 	/*MAIN CONTENT*/
@@ -371,8 +376,10 @@
 	.header-fixed .main-nav{ padding-right: 0; }
 	.nav-list a{ height: 90px; }
 	.header-fixed .nav-list a{ height: 65px; }
-	.main-nav-wrap{ height: calc(90px + 60px); }
-	.header-fixed .main-nav-wrap { height: calc(65px + 60px); }
+	.main-nav-wrap{ height: 90px; }
+	.header-fixed .main-nav-wrap { height: 65px; }
+	/*.main-nav-wrap{ height: calc(90px + 60px); }*/
+	/*.header-fixed .main-nav-wrap { height: calc(65px + 60px); }*/
 	.logo-short{ left: 5px; }
 	.header-fixed .logo-short{
 		-webkit-transform: scale(0.80, 0.80);
@@ -543,10 +550,48 @@
 		width: auto;
 	}
 	/*targets end*/
-
-	.sub-nav-list > li > a{
-		font-size: 12px;
-		line-height: 16px;
+	.sub-nav{
+		border-top: 1px solid #e6e6e6;
+		padding: 16px 12px 10px;
+		background: #fff;
+	}
+	.sub-nav-list,
+	.ie9 .sub-nav-list{
+		display: block !important;
+		background: none;
+	}
+	.sub-nav-list > li,
+	.user-content .sub-nav-list > li,
+	.user-content .sub-nav-list > li:first-child,
+	.ie9 .sub-nav-list > li{
+		display: inline-block;
+		vertical-align: top;
+		-ms-flex: none;
+		flex: none;
+		padding-bottom: 6px;
+	}
+	.sub-nav-list > li > a {
+		display: inline-block;
+		vertical-align: top;
+		font-size: 16px;
+		line-height: 24px;
+		height: auto;
+		color: #0054a8;
+		padding: 4px 8px;
+	}
+	.sub-nav-list > li a:after,
+	.sub-nav-list > li > a:before{
+		content: none;
+	}
+	html.desktop .sub-nav-list > li:hover > a,
+	html.desktop .sub-nav-list > li.active > a {
+		box-shadow: none;
+		background-color: #5990c6;
+		color: #fff;
+	}
+	.sub-nav-list > li > a > span {
+		display: inline;
+		vertical-align: baseline;
 	}
 }
 
@@ -684,6 +729,7 @@
 		background: #fff;
 		height: 90px;
 	}
+	.main-nav-wrap { height: 90px; }
 	.header-fixed .main-nav-wrap,
 	.header-fixed .main-nav,
 	.header-fixed .main-nav__holder{ height: 50px; }
@@ -694,9 +740,7 @@
 	.nav{ display: none; }
 	/*main navigation end*/
 
-	.header .sub-nav{
-		display: none !important;
-	}
+	.user-content .sub-nav{ margin-top: -30px; }
 	/*HEADER END*/
 
 	/*MAIN CONTENT*/
